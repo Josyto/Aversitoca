@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Aversitoca.iml" filepath="$PROJECT_DIR$/Aversitoca.iml" />
-      <module fileurl="file://C:\Users\DarkyShadoW\AndroidStudioProjects\Aversitoca\Aversitoca.iml" filepath="C:\Users\DarkyShadoW\AndroidStudioProjects\Aversitoca\Aversitoca.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\DarkyShadoW\AndroidStudioProjects\Aversitoca\app\app.iml" filepath="C:\Users\DarkyShadoW\AndroidStudioProjects\Aversitoca\app\app.iml" />
     </modules>
   </component>
 </project>
