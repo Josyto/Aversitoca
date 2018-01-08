@@ -21,7 +21,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
@@ -35,8 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="0dp"
         android:layout_toEndOf="@+id/primary_action"
         android:layout_toLeftOf="@+id/secondary_action"
         android:layout_toRightOf="@+id/primary_action"
@@ -69,27 +69,15 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:textColor="@color/SecondaryTextColor"
-                tools:text="Loteria Navidad" />
+                tools:text="Loteria del Niño" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="10dp"
             android:orientation="vertical">
-
-            <TextView
-
-                android:id="@+id/first_price_text_view"
-                style="@style/TextAppearance.AppCompat.Body2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:textAppearance="@android:style/TextAppearance.Material.Large"
-                android:textColor="@color/secondaryTextColor"
-                android:textSize="22sp"
-                tools:text="20001" />
 
             <TextView
 
@@ -97,9 +85,24 @@
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/SecondaryTextColor"
-                tools:text="Loteria Navidad" />
+                tools:text="No premiado" />
+
+            <TextView
+
+                android:id="@+id/first_price_text_view"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="22sp"
+                tools:text="0€" />
+
         </LinearLayout>
 
 
