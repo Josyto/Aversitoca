@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="aversitoca.aversitoca.MainActivity">
 
-    <
+
 
     <fragment
         android:id="@+id/fragment_timeline"
