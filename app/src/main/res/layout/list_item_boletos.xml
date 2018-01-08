@@ -1,0 +1,134 @@
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/two_line_item"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content"
+
+    android:background="@android:color/background_light"
+
+    android:clickable="true"
+
+    android:minHeight="72dp"
+
+    android:paddingEnd="?listPreferredItemPaddingRight"
+
+    android:paddingLeft="?listPreferredItemPaddingLeft"
+
+    android:paddingRight="?listPreferredItemPaddingRight"
+
+    android:paddingStart="?listPreferredItemPaddingLeft">
+
+
+    <ImageView
+
+        android:id="@+id/primary_action"
+
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        android:layout_marginBottom="16dp"
+
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_confirmation_number_black_40dp" />
+
+
+    <LinearLayout
+
+        android:id="@+id/lines_container"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_alignWithParentIfMissing="true"
+
+        android:layout_centerVertical="true"
+
+        android:layout_marginLeft="16dp"
+
+        android:layout_marginRight="0dp"
+
+        android:layout_toEndOf="@+id/primary_action"
+
+        android:layout_toLeftOf="@+id/secondary_action"
+
+        android:layout_toRightOf="@+id/primary_action"
+
+        android:layout_toStartOf="@+id/secondary_action"
+
+        android:orientation="vertical"
+
+        android:paddingBottom="16dp"
+
+        android:paddingTop="14dp">
+
+
+        <TextView
+
+            android:id="@+id/first_text_view"
+
+            style="@style/TextAppearance.AppCompat.Body2"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:singleLine="true"
+
+            android:text="20001"
+            android:textAppearance="@android:style/TextAppearance.Material.Large"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="22sp"
+            tools:text="First Line" />
+
+
+        <TextView
+
+            android:id="@+id/second_text_view"
+
+            style="@style/TextAppearance.AppCompat.Body1"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:singleLine="true"
+
+            android:text="Loteria Navidad"
+            android:textColor="@color/SecondaryTextColor"
+            tools:text="Second Line" />
+
+    </LinearLayout>
+
+
+    <!-- Can be replaced by a widget -->
+
+    <ImageView
+
+        android:id="@+id/secondary_action"
+
+        android:layout_width="40dp"
+
+        android:layout_height="40dp"
+
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentRight="true"
+
+        android:layout_marginEnd="16dp"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_delete_forever_black_24dp" />
+
+</RelativeLayout>
