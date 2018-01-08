@@ -1,6 +1,6 @@
 package aversitoca.aversitoca;
 
-import android.app.Fragment;
+
 import android.app.ListFragment;
 import android.widget.SimpleCursorAdapter;
 
@@ -11,8 +11,6 @@ import android.widget.SimpleCursorAdapter;
 public class BoletosListFragment extends ListFragment {
 
     private SimpleCursorAdapter myAdapter;
-
-    //TODO: Especificar columnas a mapear...
 
 
 }
