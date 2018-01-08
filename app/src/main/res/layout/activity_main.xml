@@ -6,13 +6,17 @@
     android:layout_height="match_parent"
     tools:context="aversitoca.aversitoca.MainActivity">
 
+    <
+
     <fragment
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"
-        android:id="@+id/fragment_boletos"
-        android:name="com.example.aversitoca.aversitoca.BoletosListFragment"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/fragment_timeline"
+        android:name="aversitoca.aversitoca.DecimosListFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

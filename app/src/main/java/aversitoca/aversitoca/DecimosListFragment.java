@@ -8,7 +8,7 @@ import android.widget.SimpleCursorAdapter;
  * Created by Marcos Muñoz on 04/01/2018.
  */
 
-public class BoletosListFragment extends ListFragment {
+public class DecimosListFragment extends ListFragment {
 
     private SimpleCursorAdapter myAdapter;
 

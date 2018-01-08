@@ -1,16 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="aversitoca.aversitoca.AddActivity"
+    android:background="@android:color/white"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
 
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:text="@string/add_new"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:elevation="4dp"
+
+        />
+
+
+</LinearLayout>
