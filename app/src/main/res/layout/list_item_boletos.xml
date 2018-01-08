@@ -28,6 +28,12 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_confirmation_number_black_40dp" android:contentDescription="TODO" />
 
+    <Button
+        android:layout_marginTop="50dp"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="@string/capture_button"
+        android:id="@+id/photo_button"/>
 
     <LinearLayout
         android:id="@+id/lines_container"
