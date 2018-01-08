@@ -86,8 +86,7 @@
             android:text="20001"
             android:textAppearance="@android:style/TextAppearance.Material.Large"
             android:textColor="@color/secondaryTextColor"
-            android:textSize="22sp"
-            tools:text="First Line" />
+            android:textSize="22sp" />
 
 
         <TextView
@@ -103,8 +102,7 @@
             android:singleLine="true"
 
             android:text="Loteria Navidad"
-            android:textColor="@color/SecondaryTextColor"
-            tools:text="Second Line" />
+            android:textColor="@color/SecondaryTextColor" />
 
     </LinearLayout>
 
