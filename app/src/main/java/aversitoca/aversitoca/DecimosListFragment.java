@@ -25,7 +25,7 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setEmptyText("Sin datos...");
-        mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.list_item_boletos, null, FROM, TO, 0);
+        //mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.list_item_boletos, null, FROM, TO, 0);
         mAdapter.setViewBinder(new TimelineViewBinder());
 
         setListAdapter(mAdapter);
@@ -39,7 +39,8 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
             return null;
         }
         Log.d(TAG,"onCreateLoader");
-        return new CursorLoader(getActivity(), StatusContract.CONTENT_URI, null, null, null, StatusContract.DEFAULT_SORT);
+        //return new CursorLoader(getActivity(), StatusContract.CONTENT_URI, null, null, null, StatusContract.DEFAULT_SORT);
+        return null;
     }
 
     @Override
@@ -56,7 +57,7 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
     class TimelineViewBinder implements SimpleCursorAdapter.ViewBinder {
         @Override
         public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-            if (view.getId() != R.id.list_item_text_created_at) return false;
+            //if (view.getId() != R.id.list_item_text_created_at) return false;
 
             long timestamp = cursor.getLong(columnIndex);
             CharSequence relativeTime = DateUtils.getRelativeTimeSpanString(timestamp);
