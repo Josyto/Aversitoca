@@ -25,6 +25,7 @@ public class DatabaseForm {
         public static final String ID = BaseColumns._ID;
         public static final String BOLETO = "boleto";
         public static final String PREMIO = "premio";
+        public static final String SORTEO = "sorteo";
     }
 }
 
