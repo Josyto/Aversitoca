@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Naviniño</string>
 
@@ -8,6 +9,12 @@
     <string name="title_activity_camera">CameraActivity</string>
     <string name="photo">Foto</string>
     <string name="add_ticket">Nuevo Decimo</string>
+    <string name="btn_guardar">Guardar</string>
 
+    <string-array name="sorteos_array">
+        <item>Loteria de Navidad</item>
+        <item>Loteria del Niño</item>
+
+    </string-array>
 
 </resources>

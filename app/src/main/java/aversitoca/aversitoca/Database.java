@@ -11,13 +11,14 @@ public class Database extends SQLiteOpenHelper {
 
     public Database(Context context){
         super(context, DatabaseForm.DB_NAME, null, DatabaseForm.DB_VERSION);
+
     }
 
     // Llamado para crear la tabla
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = String.format("create table %s (%s int primary key, %s int, %s int)",DatabaseForm.TABLE,
-                DatabaseForm.Column.ID, DatabaseForm.Column.BOLETO, DatabaseForm.Column.PREMIO);
+        String sql = String.format("create table %s (%s int primary key, %s int, %s int, %s text)",DatabaseForm.TABLE,
+                DatabaseForm.Column.ID, DatabaseForm.Column.BOLETO, DatabaseForm.Column.PREMIO, DatabaseForm.Column.SORTEO);
         Log.d(TAG, "onCreate con SQL: "+ sql);
         db.execSQL(sql);
     }
