@@ -9,4 +9,5 @@
     <string name="titleNotificationsSwitch">Activar Notificaciones</string>
     <string name="summaryNotificationsSwitch">Recibe notificaciones si alguno de tus numeros esta premiado</string>
     <string name="deleteButton">Borrar</string>
+    <string name="insertaNumeroDecimo">Introduce el numero de tu Decimo</string>
 </resources>

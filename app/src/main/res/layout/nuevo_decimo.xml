@@ -59,23 +59,22 @@
                     android:id="@+id/input_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/insertaNumeroDecimo"
                     android:inputType="number"
                     android:singleLine="true" />
+
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_email"
+            <Spinner
+                android:id="@+id/sorteos_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <Spinner
-                    android:id="@+id/sorteos_spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:drawSelectorOnTop="true"
-                    android:entries="@array/sorteos_array"
-                    android:popupBackground="?android:attr/colorBackgroundFloating" />
-            </android.support.design.widget.TextInputLayout>
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/sorteos_array"
+                android:paddingBottom="16dp"
+                android:popupBackground="?android:attr/colorBackgroundFloating" />
 
             <Button
                 android:id="@+id/btn_signup"
