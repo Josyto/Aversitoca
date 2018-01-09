@@ -18,10 +18,7 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
 
     private static final int LOADER_ID = 42;
 
-    private
-    static
-    final
-    String [] FROM = {DatabaseForm.Column.BOLETO, DatabaseForm.Column.PREMIO, DatabaseForm.Column.SORTEO};
+    private static final String [] FROM = {DatabaseForm.Column.BOLETO, DatabaseForm.Column.PREMIO, DatabaseForm.Column.SORTEO};
     private static final int[] TO = {R.id.text_numero_boleto, R.id.first_price_text_view, R.id.nombre_sorteo};
 
     @Override
