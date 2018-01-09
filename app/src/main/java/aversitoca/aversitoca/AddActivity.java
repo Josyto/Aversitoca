@@ -25,11 +25,11 @@ public class AddActivity extends Activity {
         setTitle(getString(R.string.add_ticket));
 
         //Spinner seleccion sorteo
-        Spinner spinner = (Spinner) findViewById(R.id.sorteos_spinner);
+       /* Spinner spinner = (Spinner) findViewById(R.id.sorteos_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.sorteos_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
 
 
 
