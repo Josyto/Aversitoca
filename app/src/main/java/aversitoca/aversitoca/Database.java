@@ -11,6 +11,7 @@ public class Database extends SQLiteOpenHelper {
 
     public Database(Context context){
         super(context, DatabaseForm.DB_NAME, null, DatabaseForm.DB_VERSION);
+
     }
 
     // Llamado para crear la tabla
