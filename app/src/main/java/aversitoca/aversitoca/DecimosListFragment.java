@@ -2,15 +2,20 @@ package aversitoca.aversitoca;
 
 
 import android.app.ListFragment;
+import android.os.Bundle;
 import android.widget.SimpleCursorAdapter;
 
-/**
- * Created by Marcos Muñoz on 04/01/2018.
- */
+
 
 public class DecimosListFragment extends ListFragment {
 
-    private SimpleCursorAdapter myAdapter;
+    private SimpleCursorAdapter mAdapter;
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setEmptyText("Sin datos...");
+
+    }
 
 }
