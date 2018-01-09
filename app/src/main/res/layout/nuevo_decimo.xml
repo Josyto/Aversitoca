@@ -36,7 +36,9 @@
         android:id="@+id/contenedor_detalle_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+    </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -44,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add_black_24dp"
+        android:src="@drawable/ic_camera_alt_black_24dp"
         app:layout_anchor="@+id/contenedor_detalle_item"
         app:layout_anchorGravity="top|end" />
 
