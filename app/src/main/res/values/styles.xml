@@ -1,6 +1,6 @@
 <resources>
     <!-- inherit from the material theme -->
-    <style name="AppTheme" parent="android:Theme.Material">
+    <style name="AppTheme" parent="Theme.AppCompat">
         <!-- Main theme colors -->
         <!--   your app branding color for the app bar -->
         <item name="android:colorPrimary">@color/primaryColor</item>
@@ -10,6 +10,10 @@
         <item name="android:colorAccent">@color/secondaryColor</item>
         <item name="android:textColorPrimary">@color/primaryTextColor</item>
         <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryDark</item>
 
     </style>
 </resources>
