@@ -8,10 +8,43 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        String url="http://api.elpais.com/ws/LoteriaNavidadPremiados?n=99999";
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Comprobar si la actividad ya ha sido creada con anterioridad
+        if(savedInstanceState==null) {
+            // Crear un fragment mediante FragmentManager() y lo engancha en el sitio especificado
+            // del main
+            DecimosListFragment decimos = new DecimosListFragment();
+            getFragmentManager().beginTransaction().add(R.id.fragment_timeline, decimos,
+                    decimos.getClass().getSimpleName()).commit();
+        }
+
+        /*JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        mTxtDisplay.setText("Response: " + response.toString());
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        mTextView.setText("That didn't work!");
+                    }
+                });*/
     }
 
 

@@ -1,6 +1,5 @@
 package aversitoca.aversitoca;
 
-
 import android.app.ListFragment;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
@@ -21,12 +20,18 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
 
     private static final int LOADER_ID = 42;
 
+    private
+    static
+    final
+    String [] FROM = {DatabaseForm.Column.BOLETO, DatabaseForm.Column.PREMIO, DatabaseForm.Column.SORTEO};
+    private static final int[] TO = {R.id.text_numero_boleto, R.id.first_price_text_view, R.id.nombre_sorteo};
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setEmptyText("Sin datos...");
-        //mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.list_item_boletos, null, FROM, TO, 0);
-        mAdapter.setViewBinder(new TimelineViewBinder());
+        mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.list_item_boletos, null, FROM, TO, 0);
+        //mAdapter.setViewBinder(new TimelineViewBinder());
 
         setListAdapter(mAdapter);
 
@@ -39,8 +44,7 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
             return null;
         }
         Log.d(TAG,"onCreateLoader");
-        //return new CursorLoader(getActivity(), StatusContract.CONTENT_URI, null, null, null, StatusContract.DEFAULT_SORT);
-        return null;
+        return new CursorLoader(getActivity(), DatabaseForm.CONTENT_URI, null, null, null, DatabaseForm.DEFAULT_SORT);
     }
 
     @Override
@@ -54,7 +58,7 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
         mAdapter.swapCursor(null);
     }
 
-    class TimelineViewBinder implements SimpleCursorAdapter.ViewBinder {
+    /*class TimelineViewBinder implements SimpleCursorAdapter.ViewBinder {
         @Override
         public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
             //if (view.getId() != R.id.list_item_text_created_at) return false;
@@ -64,6 +68,6 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
             ((TextView)view).setText(relativeTime);
             return true;
         }
-    }
+    }*/
 
 }
