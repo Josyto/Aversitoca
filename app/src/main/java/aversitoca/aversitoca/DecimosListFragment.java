@@ -45,7 +45,6 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
         }
         Log.d(TAG,"onCreateLoader");
         return new CursorLoader(getActivity(), DatabaseForm.CONTENT_URI, null, null, null, DatabaseForm.DEFAULT_SORT);
-        return null;
     }
 
     @Override
