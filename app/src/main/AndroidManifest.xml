@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingsActivity" > </activity>
+
         <provider
             android:authorities="aversitoca.aversitoca.StatusProvider"
             android:name="aversitoca.aversitoca.StatusProvider"
