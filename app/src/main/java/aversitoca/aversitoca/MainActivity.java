@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState==null) {
             // Crear un fragment mediante FragmentManager() y lo engancha en el sitio especificado
             // del main
+
             DecimosListFragment decimos = new DecimosListFragment();
             getFragmentManager().beginTransaction().add(R.id.fragment_timeline, decimos,
                     decimos.getClass().getSimpleName()).commit();

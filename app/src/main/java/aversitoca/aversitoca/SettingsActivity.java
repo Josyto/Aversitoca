@@ -17,7 +17,7 @@ public class SettingsActivity extends AppCompatActivity {
             SettingsFragment fragment = new SettingsFragment();
             getFragmentManager()
                     .beginTransaction()
-                    .add(android.R.id. content , fragment,
+                    .add(android.R.id.content , fragment,
                             fragment.getClass().getSimpleName())
                     .commit();
         }
