@@ -12,7 +12,13 @@
     <item
         android:id="@+id/refresh"
         android:title="@string/refresh"
+        />
+
+    <item
+        android:id="@+id/addButton"
+        android:title="@string/add_new"
         android:icon="@android:drawable/ic_media_play"
+
         />
 
 </menu>
