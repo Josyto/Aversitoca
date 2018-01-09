@@ -8,6 +8,8 @@
     <string name="title_activity_camera">CameraActivity</string>
     <string name="photo">Foto</string>
     <string name="add_ticket">Nuevo Decimo</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="refresh">Actualizar</string>
 
 
 </resources>
