@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Naviniño</string>
 
@@ -10,6 +11,12 @@
     <string name="add_ticket">Nuevo Decimo</string>
     <string name="action_settings">Ajustes</string>
     <string name="refresh">Actualizar</string>
+    <string name="btn_guardar">Guardar</string>
 
+    <string-array name="sorteos_array">
+        <item>Loteria de Navidad</item>
+        <item>Loteria del Niño</item>
+
+    </string-array>
 
 </resources>

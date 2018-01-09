@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Naviniño</string>
     <string name="add_new">Add Lottery Ticket</string>
+    <string name="btn_guardar">Save</string>
 </resources>
