@@ -6,11 +6,9 @@ import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.text.format.DateUtils;
 import android.util.Log;
-import android.view.View;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
+
 
 
 public class DecimosListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>{
