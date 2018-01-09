@@ -12,6 +12,11 @@
     <string name="action_settings">Ajustes</string>
     <string name="refresh">Actualizar</string>
     <string name="btn_guardar">Guardar</string>
+    <string name="actualizarCada">Actualizar cada # minutos:</string>
+    <string name="summaryActualizarCada">Inserta tiempo en minutos</string>
+    <string name="titleNotificationsSwitch">Activar Notificaciones</string>
+    <string name="summaryNotificationsSwitch">Recibe notificaciones si alguno de tus numeros esta premiado</string>
+    <string name="deleteButton">Borrar</string>
 
     <string-array name="sorteos_array">
         <item>Loteria de Navidad</item>

@@ -7,11 +7,12 @@
     android:layout_height="wrap_content"
     android:background="@android:color/background_light"
     android:clickable="true"
+    android:focusable="true"
     android:minHeight="72dp"
     android:paddingEnd="?listPreferredItemPaddingRight"
     android:paddingLeft="?listPreferredItemPaddingLeft"
     android:paddingRight="?listPreferredItemPaddingRight"
-    android:paddingStart="?listPreferredItemPaddingLeft" android:focusable="true">
+    android:paddingStart="?listPreferredItemPaddingLeft">
 
 
     <ImageView
@@ -20,13 +21,12 @@
 
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:adjustViewBounds="false"
+        android:contentDescription="@string/capture_button"
         android:cropToPadding="false"
         android:scaleType="centerInside"
-        android:src="@drawable/ic_confirmation_number_black_40dp" android:contentDescription="TODO" />
+        android:src="@drawable/ic_confirmation_number_black_40dp" />
 
     <LinearLayout
         android:id="@+id/lines_container"
@@ -34,15 +34,16 @@
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="16dp"
         android:layout_marginEnd="0dp"
+        android:layout_marginStart="16dp"
         android:layout_toEndOf="@+id/primary_action"
         android:layout_toLeftOf="@+id/secondary_action"
         android:layout_toRightOf="@+id/primary_action"
         android:layout_toStartOf="@+id/secondary_action"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingBottom="16dp"
-        android:paddingTop="14dp">
+        android:paddingTop="16dp">
 
 
         <LinearLayout
@@ -122,12 +123,10 @@
 
         android:layout_alignParentRight="true"
 
-        android:layout_marginEnd="16dp"
-
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
 
         android:scaleType="centerInside"
-        android:src="@drawable/ic_delete_forever_black_24dp" android:contentDescription="TODO" />
+        android:src="@drawable/ic_delete_forever_black_24dp" />
 
 </RelativeLayout>
