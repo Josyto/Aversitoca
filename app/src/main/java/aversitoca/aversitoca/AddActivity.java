@@ -33,7 +33,7 @@ public class AddActivity extends Activity {
         spinner.setAdapter(adapter);
 
 
-
+        // La imagen del boleto
         this.imageView = (ImageView)this.findViewById(R.id.imageView1);
         FloatingActionButton photoButton = (FloatingActionButton) this.findViewById(R.id.button1);
         Button guardar = (Button) this.findViewById(R.id.btn_signup);
