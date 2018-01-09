@@ -17,6 +17,7 @@ public class AddActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.introducir_nuevo);
+        setTitle(getString(R.string.add_ticket));
         this.imageView = (ImageView)this.findViewById(R.id.imageView1);
         Button photoButton = (Button) this.findViewById(R.id.button1);
         photoButton.setOnClickListener(new View.OnClickListener() {

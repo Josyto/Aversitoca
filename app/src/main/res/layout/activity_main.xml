@@ -7,7 +7,6 @@
     tools:context="aversitoca.aversitoca.MainActivity">
 
 
-
     <fragment
         android:id="@+id/fragment_timeline"
         android:name="aversitoca.aversitoca.DecimosListFragment"
