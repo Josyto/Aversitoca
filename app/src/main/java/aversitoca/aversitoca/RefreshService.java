@@ -25,13 +25,11 @@ public class RefreshService extends IntentService {
     static final String TAG = "RefreshService";
     static final int DELAY = 30000; //medio minuto
     private boolean runFlag = false;
-    ArrayList<String> values = new ArrayList<String>();
-    String premio;
+    String id,boleto,premio;
     HttpURLConnection urlConnection;
     URL url;
     StringBuilder result = new StringBuilder();
     JSONObject jsonObject;
-    JSONArray jsonArray;
     ContentValues contentValues;
 
     //Base de datos
@@ -56,9 +54,9 @@ public class RefreshService extends IntentService {
         Log.d(TAG, "onStarted");
         this.runFlag = true;
 
-        StatusProvider provider = new StatusProvider();
+
         //SELECT
-        Cursor cursor = provider.query(DatabaseForm.CONTENT_URI,null,null,null,null);
+        Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
 
 
         try {
@@ -66,13 +64,11 @@ public class RefreshService extends IntentService {
                 if (cursor.getCount() > 0) {
                     for (int i = 0; i < cursor.getCount(); i++) {
                         cursor.moveToNext();
-                        values.set(0,cursor.getString(0));
-                        values.set(1,cursor.getString(1));
-                        values.set(2,cursor.getString(2));
-                        values.set(3,cursor.getString(3));
+                        id = cursor.getString(0);
+                        boleto = cursor.getString(1);
 
                         //SOLICITUD A API
-                        url = new URL("http://api.elpais.com/ws/LoteriaNavidadPremiados?n="+values.get(1));
+                        url = new URL("http://api.elpais.com/ws/LoteriaNavidadPremiados?n="+boleto);
                         urlConnection = (HttpURLConnection) url.openConnection();
                         InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
@@ -81,7 +77,9 @@ public class RefreshService extends IntentService {
                         while ((line = reader.readLine()) != null) {
                             result.append(line);
                         }
-
+                        line = result.toString();
+                        String[] split = line.split("=");
+                        line = split[1];
                         jsonObject = new JSONObject(line);
 
                         if(jsonObject.getString("error")=="0"){
@@ -91,7 +89,7 @@ public class RefreshService extends IntentService {
                         contentValues = new ContentValues();
                         contentValues.put("PREMIO",premio);
                         //UPDATE
-                        provider.update(DatabaseForm.CONTENT_URI,contentValues, "ID = ?", new String[]{values.get(0)});
+                        getContentResolver().update(DatabaseForm.CONTENT_URI,contentValues, DatabaseForm.Column.ID + " = ?", new String[]{id});
 
                     }
                 }
