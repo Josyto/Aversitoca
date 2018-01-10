@@ -8,8 +8,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.SimpleCursorAdapter;
-import android.widget.ImageView;
-
 
 
 public class DecimosListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>{
@@ -26,7 +24,7 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setEmptyText("Sin datos...");
-        mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.list_item_boletos, null, FROM, TO, 0);
+        mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.list_item_decimo, null, FROM, TO, 0);
         //mAdapter.setViewBinder(new TimelineViewBinder());
 
         setListAdapter(mAdapter);
