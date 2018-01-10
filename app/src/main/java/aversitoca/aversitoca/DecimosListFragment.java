@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.SimpleCursorAdapter;
+import android.widget.ImageView;
 
 
 
@@ -31,6 +32,7 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
         setListAdapter(mAdapter);
 
         getLoaderManager().initLoader(LOADER_ID, null, this);
+
     }
 
     @Override
@@ -47,6 +49,22 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
         Log.d(TAG, "onLoadFinished with cursor: " + cursor.getCount());
         mAdapter.swapCursor(cursor);
     }
+
+    /*@Override
+
+    ImageView imgFavorite = (ImageView) this.getView().findViewById(R.id.secondary_action);
+    imgFavorite.setClickable(true);
+    imgFavorite.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            final String _id = v.getTag().toString();
+            DBAdapter dba = new DBAdapter(mActivity);
+            dba.open();
+            dba.remove(_id);
+            Log.i("TAAG", "removed: "+_id);
+            dba.close();
+        }
+    };*/
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader){
