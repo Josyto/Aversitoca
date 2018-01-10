@@ -17,7 +17,7 @@
 
     <ImageView
 
-        android:id="@+id/primary_action"
+        android:id="@+id/foto_decimo"
 
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -36,9 +36,9 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="16dp"
-        android:layout_toEndOf="@+id/primary_action"
+        android:layout_toEndOf="@+id/foto_decimo"
         android:layout_toLeftOf="@+id/secondary_action"
-        android:layout_toRightOf="@+id/primary_action"
+        android:layout_toRightOf="@+id/foto_decimo"
         android:layout_toStartOf="@+id/secondary_action"
         android:gravity="center_vertical"
         android:orientation="horizontal"

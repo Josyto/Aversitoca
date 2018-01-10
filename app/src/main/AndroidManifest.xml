@@ -24,14 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity"
+        <activity
+            android:name=".SettingsActivity"
             android:label="@string/action_settings"
-            android:parentActivityName="aversitoca.aversitoca.MainActivity"
-            />
-        <activity android:name=".AddActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddActivity"
             android:label="@string/add_ticket"
-            android:parentActivityName="aversitoca.aversitoca.MainActivity"/>
-
+            android:parentActivityName=".MainActivity" />
 
         <provider
             android:name=".StatusProvider"
@@ -41,8 +41,9 @@
         <service
             android:name=".RefreshService"
             android:enabled="true"
-            android:exported="false"/>
+            android:exported="false" />
 
+        <activity android:name=".Main2Activity"></activity>
     </application>
 
 </manifest>
