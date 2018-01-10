@@ -25,7 +25,7 @@ public class RefreshService extends IntentService {
     static final String TAG = "RefreshService";
     static final int DELAY = 30000; //medio minuto
     private boolean runFlag = false;
-    String id,boleto,premio;
+    String id,boleto,premio,line;
     HttpURLConnection urlConnection;
     URL url;
     StringBuilder result = new StringBuilder();
@@ -73,12 +73,14 @@ public class RefreshService extends IntentService {
                         urlConnection = (HttpURLConnection) url.openConnection();
                         InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                        String line;
+
 
                         while ((line = reader.readLine()) != null) {
                             result.append(line);
                         }
+
                         line = result.toString();
+                        result = new StringBuilder();
                         String[] split = line.split("=");
                         line = split[1];
                         jsonObject = new JSONObject(line);
@@ -90,7 +92,7 @@ public class RefreshService extends IntentService {
                         contentValues = new ContentValues();
                         contentValues.put("PREMIO",premio);
                         //UPDATE
-                        getContentResolver().update(DatabaseForm.CONTENT_URI,contentValues, DatabaseForm.Column.ID + " = ?", new String[]{id});
+                        getContentResolver().update(DatabaseForm.CONTENT_URI,contentValues, DatabaseForm.Column.BOLETO + " = ?", new String[]{boleto});
 
                     }
                 }

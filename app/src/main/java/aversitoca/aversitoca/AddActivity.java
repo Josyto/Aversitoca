@@ -49,6 +49,7 @@ public class AddActivity extends Activity {
                 // La logica de jose
                     String codigo = ((EditText) findViewById(R.id.input_name)).getText().toString();
                     String sorteo = ((Spinner) findViewById(R.id.sorteos_spinner)).getSelectedItem().toString();
+
                     //Imprimimos las actualizaciones en el log
                     Log.d("insertBase", String.format("%s", codigo));
 
