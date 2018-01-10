@@ -5,12 +5,16 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.support.design.widget.FloatingActionButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.content.ContentValues;
+
 
 
 public class AddActivity extends Activity {
@@ -43,6 +47,17 @@ public class AddActivity extends Activity {
             @Override
             public void onClick(View v) {
                 // La logica de jose
+                    String codigo = ((EditText) findViewById(R.id.input_name)).getText().toString();
+                    //Imprimimos las actualizaciones en el log
+                    Log.d("insertBase", String.format("%s", codigo));
+
+                    ContentValues values = new ContentValues();
+
+                    //Insertamos los valores en la base de datos
+                    values.clear();
+                    values.put(DatabaseForm.Column.BOLETO, codigo);
+
+                    getContentResolver().insert(DatabaseForm.CONTENT_URI, values);
             }
         });
 
