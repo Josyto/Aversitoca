@@ -68,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.addButton:
                 startActivity(new Intent(this, AddActivity.class));
                 return true;
+            case R.id.lista2:
+                startActivity(new Intent(this, Main2Activity.class));
+                return true;
             default:
                 return false;
         }

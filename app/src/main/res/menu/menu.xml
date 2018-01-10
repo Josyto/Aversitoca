@@ -18,5 +18,9 @@
         android:id="@+id/addButton"
         android:title="@string/add_new"
         />
+    <item
+        android:id="@+id/lista2"
+        android:title="Lista 2"
+        />
 
 </menu>

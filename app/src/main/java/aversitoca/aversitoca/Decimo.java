@@ -10,12 +10,18 @@ public class Decimo {
     private String sorteo;
     private String premio;
     private int foto;
+    private int id;
 
-    public Decimo(String numero, String sorteo, String premio, int foto) {
+    public Decimo(String numero, String sorteo, String premio, int foto,int id) {
         this.numero = numero;
         this.sorteo = sorteo;
         this.premio = premio;
         this.foto = foto;
+        this.id = id;
+    }
+
+    public Decimo() {
+
     }
 
     public String getNumero() {
@@ -48,5 +54,13 @@ public class Decimo {
 
     public void setFoto(int foto) {
         this.foto = foto;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
