@@ -48,6 +48,7 @@ public class AddActivity extends Activity {
             public void onClick(View v) {
                 // La logica de jose
                     String codigo = ((EditText) findViewById(R.id.input_name)).getText().toString();
+                    String sorteo = ((Spinner) findViewById(R.id.sorteos_spinner)).getSelectedItem().toString();
                     //Imprimimos las actualizaciones en el log
                     Log.d("insertBase", String.format("%s", codigo));
 
@@ -56,7 +57,7 @@ public class AddActivity extends Activity {
                     //Insertamos los valores en la base de datos
                     values.clear();
                     values.put(DatabaseForm.Column.BOLETO, codigo);
-
+                    values.put(DatabaseForm.Column.SORTEO, sorteo);
                     getContentResolver().insert(DatabaseForm.CONTENT_URI, values);
             }
         });

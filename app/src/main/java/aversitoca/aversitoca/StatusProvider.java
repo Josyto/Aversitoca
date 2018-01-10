@@ -99,8 +99,8 @@ public class StatusProvider extends ContentProvider {
         }
 
         if (rowId != -1){
-            long id = contentValues.getAsLong(DatabaseForm.Column.ID);
-            ret = ContentUris.withAppendedId(uri, id);
+            //long id = contentValues.getAsLong(DatabaseForm.Column.ID);
+            //ret = ContentUris.withAppendedId(uri, id);
             Log.d(TAG, "uri insertada: " + ret);
 
             getContext().getContentResolver().notifyChange(uri, null);

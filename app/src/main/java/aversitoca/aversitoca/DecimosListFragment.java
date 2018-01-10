@@ -48,6 +48,7 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor){
         Log.d(TAG, "onLoadFinished with cursor: " + cursor.getCount());
         mAdapter.swapCursor(cursor);
+
     }
 
     /*@Override
