@@ -23,7 +23,7 @@ public class AddActivity extends Activity {
         setContentView(R.layout.nuevo_decimo);
 
         //Cambio titulo Appbar
-        setTitle(R.string.add_ticket);
+        setTitle(getString(R.string.add_ticket));
 
         //Spinner seleccion sorteo
        Spinner spinner = (Spinner) findViewById(R.id.sorteos_spinner);
