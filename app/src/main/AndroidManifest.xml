@@ -24,8 +24,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".AddActivity" />
+        <activity android:name=".SettingsActivity"
+            android:label="@string/action_settings"
+            android:parentActivityName="aversitoca.aversitoca.MainActivity"
+            />
+        <activity android:name=".AddActivity"
+            android:label="@string/add_ticket"
+            android:parentActivityName="aversitoca.aversitoca.MainActivity"/>
+
 
         <provider
             android:name=".StatusProvider"
