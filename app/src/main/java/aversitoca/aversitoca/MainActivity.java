@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        //arancar servicio
+        startService(new Intent(this, RefreshService.class));
+
         // Comprobar si la actividad ya ha sido creada con anterioridad
         if(savedInstanceState==null) {
             // Crear un fragment mediante FragmentManager() y lo engancha en el sitio especificado

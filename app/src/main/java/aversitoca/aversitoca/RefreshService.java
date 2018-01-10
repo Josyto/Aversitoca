@@ -4,7 +4,6 @@ import android.app.IntentService;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -58,6 +57,7 @@ public class RefreshService extends IntentService {
         this.runFlag = true;
 
         StatusProvider provider = new StatusProvider();
+        //SELECT
         Cursor cursor = provider.query(DatabaseForm.CONTENT_URI,null,null,null,null);
 
 
@@ -90,6 +90,7 @@ public class RefreshService extends IntentService {
 
                         contentValues = new ContentValues();
                         contentValues.put("PREMIO",premio);
+                        //UPDATE
                         provider.update(DatabaseForm.CONTENT_URI,contentValues, "ID = ?", new String[]{values.get(0)});
 
                     }

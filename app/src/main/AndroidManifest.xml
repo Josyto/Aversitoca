@@ -34,7 +34,9 @@
 
         <service
             android:name=".RefreshService"
-            android:exported="false"></service>
+            android:enabled="true"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
