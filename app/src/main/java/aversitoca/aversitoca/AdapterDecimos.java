@@ -33,7 +33,7 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
     @Override
     public void onBindViewHolder(ViewHolderDecimos holder, int position) {
         holder.numeroDecimo.setText(listDecimos.get(position).getNumero().toString());
-        holder.nombreSorteo.setText(listDecimos.get(position).getSorteo().toString());
+        holder.nombreSorteo.setText(listDecimos.get(position).getSorteo());
         holder.premio.setText(listDecimos.get(position).getPremio().toString());
        //TODO: Insertar foto en -
         // holder.foto.setImageResoruce(listDecimos.get(position).getFoto());
