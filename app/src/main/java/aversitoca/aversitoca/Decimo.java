@@ -6,10 +6,10 @@ package aversitoca.aversitoca;
 
 public class Decimo {
 
-    private String numero, sorteo, premio;
-    private int foto, id , comprobado, celebrado;
+    private String numero, sorteo, premio, foto;
+    private int id , comprobado, celebrado;
 
-    public Decimo(String numero, String sorteo, String premio, int foto, int id, int comprobado, int celebrado) {
+    public Decimo(String numero, String sorteo, String premio, String foto, int id, int comprobado, int celebrado) {
         this.numero = numero;
         this.sorteo = sorteo;
         this.premio = premio;
@@ -47,11 +47,11 @@ public class Decimo {
         this.premio = premio;
     }
 
-    public int getFoto() {
+    public String getFoto() {
         return this.foto;
     }
 
-    public void setFoto(int foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 

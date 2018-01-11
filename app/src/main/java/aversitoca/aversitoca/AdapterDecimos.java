@@ -1,6 +1,8 @@
 package aversitoca.aversitoca;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,7 +72,9 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
         holder.nombreSorteo.setText(posDecimo.getSorteo());
         holder.premio.setText(posDecimo.getPremio() + "€");
        //TODO: Insertar foto en -
-        // holder.foto.setImageResoruce(listDecimos.get(position).getFoto());
+        String fotostring=posDecimo.getFoto();
+        Bitmap myBitmap = BitmapFactory.decodeFile(fotostring);
+        holder.foto.setImageBitmap(myBitmap);
     }
 
     @Override

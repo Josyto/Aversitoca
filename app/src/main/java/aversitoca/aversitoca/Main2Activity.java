@@ -14,6 +14,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -114,8 +115,8 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
             // showing snack bar with Undo option
 
             Snackbar snackbar = Snackbar
-                    .make(coordinatorLayout, name + " Eliminado!", Snackbar.LENGTH_LONG);
-            snackbar.setAction("UNDO", new View.OnClickListener() {
+                    .make(coordinatorLayout, name + getString(R.string.Eliminado), Snackbar.LENGTH_LONG);
+            snackbar.setAction(R.string.undo, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
@@ -152,7 +153,7 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
             decimo.setNumero(cursor.getString(1));
             decimo.setPremio(cursor.getString(2));
             decimo.setSorteo(cursor.getString(3));
-            decimo.setFoto(cursor.getInt(0));
+            decimo.setFoto(cursor.getString(6));
             decimo.setComprobado(cursor.getInt(4));
             decimo.setCelebrado(cursor.getInt(5));
 
