@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -21,10 +22,14 @@ public class AddActivity extends Activity {
     private static final int CAMERA_REQUEST = 1888;
     private ImageView imageView;
 
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nuevo_decimo);
+
 
         //Cambio titulo Appbar
         setTitle(getString(R.string.add_ticket));
@@ -38,7 +43,7 @@ public class AddActivity extends Activity {
 
 
         // La imagen del boleto
-        this.imageView = (ImageView)this.findViewById(R.id.preview);
+
         FloatingActionButton photoButton = (FloatingActionButton) this.findViewById(R.id.button1);
         Button guardar = (Button) this.findViewById(R.id.btn_signup);
 
