@@ -3,7 +3,9 @@ package aversitoca.aversitoca;
 import android.app.IntentService;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,6 +21,8 @@ import java.net.URL;
 
 
 public class RefreshService extends IntentService {
+    SharedPreferences prefs = PreferenceManager. getDefaultSharedPreferences (this);
+    int delayPrefs= prefs.getInt("tiempomin",DELAY);
     static final String TAG = "RefreshService";
     static final int DELAY = 30000; //medio minuto
     static final String URLNAVIDAD = "https://api.elpais.com/ws/LoteriaNavidadPremiados?s=1";
