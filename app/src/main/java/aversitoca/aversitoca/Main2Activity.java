@@ -155,6 +155,13 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 5) {
+            consultarListaDecimos();
+        }
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
@@ -166,7 +173,8 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;
             case R.id.addButton:
-                startActivity(new Intent(this, AddActivity.class));
+                Intent intent=new Intent(Main2Activity.this,AddActivity.class);
+                startActivityForResult(intent,5);
                 return true;
             case R.id.refresh:
                 stopService(new Intent(this, RefreshService.class));

@@ -18,7 +18,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.content.ContentValues;
-import android.widget.Toast;
+
 
 
 public class AddActivity extends Activity {
@@ -78,6 +78,11 @@ public class AddActivity extends Activity {
                         values.put(DatabaseForm.Column.SORTEO, sorteo);
                         values.put(DatabaseForm.Column.PREMIO, 0);
                         getContentResolver().insert(DatabaseForm.CONTENT_URI, values);
+
+
+                        Intent intent=new Intent();
+                        intent.putExtra("MESSAGE","OK");
+                        setResult(5,intent);
                         finish();
 
                     }
@@ -108,12 +113,7 @@ public class AddActivity extends Activity {
     }
 
 
-    @Override
-    protected void onDestroy() {
-        Main2Activity mActivity= new Main2Activity(); mActivity.consultarListaDecimos();
 
-        super.onDestroy();
-    }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
