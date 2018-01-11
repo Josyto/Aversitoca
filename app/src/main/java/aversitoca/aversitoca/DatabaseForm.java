@@ -26,6 +26,7 @@ public class DatabaseForm {
         public static final String BOLETO = "boleto";
         public static final String PREMIO = "premio";
         public static final String SORTEO = "sorteo";
+        public static final String FOTO = "foto";
         // 0 si no se ha comprobado
         public static final String COMPROBADO = "comprobado";
         // Valor 0 el sorteo no ha comenzado aún

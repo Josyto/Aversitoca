@@ -1,13 +1,16 @@
 package aversitoca.aversitoca;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -25,7 +28,12 @@ public class AddActivity extends Activity {
     private static final int CAMERA_REQUEST = 1888;
     private ImageView imageView;
     CoordinatorLayout coordinatorLayout;
-
+    String uri = "";
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
 
 
     @Override
@@ -79,6 +87,7 @@ public class AddActivity extends Activity {
                         values.put(DatabaseForm.Column.PREMIO, 0);
                         values.put(DatabaseForm.Column.COMPROBADO, 0);
                         values.put(DatabaseForm.Column.CELEBRADO, 0);
+                        values.put(DatabaseForm.Column.FOTO, uri);
                         getContentResolver().insert(DatabaseForm.CONTENT_URI, values);
 
 
@@ -97,8 +106,10 @@ public class AddActivity extends Activity {
 
                     @Override
                     public void onClick(View v) {
-                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        startActivityForResult(cameraIntent, CAMERA_REQUEST);
+
+
             }
         });
 
@@ -118,8 +129,15 @@ public class AddActivity extends Activity {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
+            int permission = ActivityCompat.checkSelfPermission(AddActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            if (permission != PackageManager.PERMISSION_GRANTED) {
+                // We don't have permission so prompt the user
+                ActivityCompat.requestPermissions(AddActivity.this, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE
+                );
+            }
+            Save savefile = new Save();
+            uri = savefile.SaveImage(this,imageBitmap);
 
-            imageView.setImageBitmap(imageBitmap);
         }
     }
 
