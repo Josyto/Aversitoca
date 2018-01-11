@@ -3,9 +3,11 @@ package aversitoca.aversitoca;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v7.app.ActionBar;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -15,13 +17,13 @@ import android.support.design.widget.FloatingActionButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.content.ContentValues;
-
+import android.widget.Toast;
 
 
 public class AddActivity extends Activity {
     private static final int CAMERA_REQUEST = 1888;
     private ImageView imageView;
-
+    CoordinatorLayout coordinatorLayout;
 
 
 
@@ -54,19 +56,29 @@ public class AddActivity extends Activity {
                 // La logica de jose
                     String codigo = ((EditText) findViewById(R.id.input_name)).getText().toString();
                     String sorteo = ((Spinner) findViewById(R.id.sorteos_spinner)).getSelectedItem().toString();
+                    if (codigo.length()!=5){
+                        coordinatorLayout = findViewById(R.id.coordinator_layoutnuevo);
+                        Snackbar snackbar = Snackbar
+                                .make(coordinatorLayout, "El boleto debe tener 5 cifras", Snackbar.LENGTH_LONG);
+                        snackbar.setActionTextColor(Color.YELLOW);
+                        snackbar.show();
+                    }
+                    else {
+                        //Imprimimos las actualizaciones en el log
+                        Log.d("insertBase", String.format("%s", codigo));
 
-                    //Imprimimos las actualizaciones en el log
-                    Log.d("insertBase", String.format("%s", codigo));
+                        ContentValues values = new ContentValues();
 
-                    ContentValues values = new ContentValues();
+                        //Insertamos los valores en la base de datos
+                        values.clear();
+                        values.put(DatabaseForm.Column.BOLETO, codigo);
+                        values.put(DatabaseForm.Column.SORTEO, sorteo);
+                        values.put(DatabaseForm.Column.PREMIO, 0);
+                        getContentResolver().insert(DatabaseForm.CONTENT_URI, values);
+                        finish();
 
-                    //Insertamos los valores en la base de datos
-                    values.clear();
-                    values.put(DatabaseForm.Column.BOLETO, codigo);
-                    values.put(DatabaseForm.Column.SORTEO, sorteo);
-                    values.put(DatabaseForm.Column.PREMIO, 0);
-                    getContentResolver().insert(DatabaseForm.CONTENT_URI, values);
-                    finish();
+                    }
+
             }
         });
 
