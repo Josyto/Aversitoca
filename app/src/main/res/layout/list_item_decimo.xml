@@ -15,19 +15,6 @@
     android:paddingStart="?listPreferredItemPaddingLeft">
 
 
-    <ImageView
-
-        android:id="@+id/foto_decimo"
-
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:adjustViewBounds="false"
-        android:contentDescription="@string/capture_button"
-        android:cropToPadding="false"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_confirmation_number_black_40dp" />
-
     <LinearLayout
         android:id="@+id/lines_container"
         android:layout_width="match_parent"
@@ -45,6 +32,20 @@
         android:paddingBottom="16dp"
         android:paddingTop="16dp">
 
+
+        <ImageView
+
+            android:id="@+id/foto_decimo"
+
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="false"
+            android:contentDescription="@string/capture_button"
+            android:cropToPadding="false"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_confirmation_number_black_40dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"

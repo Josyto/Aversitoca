@@ -18,6 +18,7 @@
     <string name="summaryNotificationsSwitch">Recibe notificaciones si alguno de tus numeros esta premiado</string>
     <string name="deleteButton">Borrar</string>
     <string name="insertaNumeroDecimo">Introduce el numero de tu Decimo</string>
+    <string name="delete">Eliminar</string>
 
     <string-array name="sorteos_array">
         <item>Loteria de Navidad</item>
