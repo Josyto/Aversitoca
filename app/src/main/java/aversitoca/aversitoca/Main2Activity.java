@@ -196,4 +196,8 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
     }
 
 
+    public void onClick(View view) {
+        Intent intent=new Intent(Main2Activity.this,AddActivity.class);
+        startActivityForResult(intent,5);
+    }
 }
