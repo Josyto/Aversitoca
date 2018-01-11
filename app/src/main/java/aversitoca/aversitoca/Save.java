@@ -17,11 +17,15 @@ import java.util.Calendar;
 
 
 
+/**
+ * Created by josyt on 11/01/2018.
+ */
+
 public class Save {
 
     private Context TheThis;
-    private String NameOfFolder = "/Navinino";
-    private String NameOfFile = "decimo";
+    private String NameOfFolder = "/Nuevacarpeta";
+    private String NameOfFile = "imagen";
     private File file;
 
     public String SaveImage(Context context, Bitmap ImageToSave) {
@@ -76,11 +80,11 @@ public class Save {
     }
 
     private void UnableToSave() {
-        Toast.makeText(TheThis, R.string.imgNotSaved, Toast.LENGTH_SHORT).show();
+        Toast.makeText(TheThis, "¡No se ha podido guardar la imagen!", Toast.LENGTH_SHORT).show();
     }
 
     private void AbleToSave() {
-        Toast.makeText(TheThis, R.string.imgSaved, Toast.LENGTH_SHORT).show();
+        Toast.makeText(TheThis, "Imagen guardada en la galería.", Toast.LENGTH_SHORT).show();
     }
 
 
