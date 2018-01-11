@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Marcos Muñoz on 10/01/2018.
@@ -18,54 +19,7 @@ import java.util.ArrayList;
 public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHolderDecimos>{
 
     private Context context;
-    ArrayList<Decimo> listDecimos;
-
-    public AdapterDecimos(Context context,ArrayList<Decimo> listDecimos) {
-        this.context=context;
-        this.listDecimos = listDecimos;
-    }
-
-    public AdapterDecimos(ArrayList<Decimo> listDecimos) {
-        this.listDecimos = listDecimos;
-    }
-
-
-    @Override
-    public ViewHolderDecimos onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item_decimo2,null,false);
-
-        return new ViewHolderDecimos(view);
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolderDecimos holder, int position) {
-        holder.numeroDecimo.setText(listDecimos.get(position).getNumero().toString());
-        holder.nombreSorteo.setText(listDecimos.get(position).getSorteo());
-        holder.premio.setText(listDecimos.get(position).getPremio().toString() + "€");
-       //TODO: Insertar foto en -
-        // holder.foto.setImageResoruce(listDecimos.get(position).getFoto());
-    }
-
-    @Override
-    public int getItemCount() {
-        return listDecimos.size();
-    }
-
-    public void removeItem(int position) {
-        listDecimos.remove(position);
-        // notify the item removed by position
-        // to perform recycler view delete animations
-        // NOTE: don't call notifyDataSetChanged()
-        notifyItemRemoved(position);
-        notifyDataSetChanged();
-    }
-
-    public void restoreItem(Decimo item, int position) {
-        listDecimos.add(position, item);
-        // notify item added by position
-        notifyItemInserted(position);
-    }
+    List<Decimo> listDecimos;
 
 
     public class ViewHolderDecimos extends RecyclerView.ViewHolder {
@@ -90,4 +44,55 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
         }
 
     }
+
+    public AdapterDecimos(Context context,List<Decimo> listDecimos) {
+        this.context=context;
+        this.listDecimos = listDecimos;
+    }
+
+    public AdapterDecimos(List<Decimo> listDecimos) {
+        this.listDecimos = listDecimos;
+    }
+
+
+    @Override
+    public ViewHolderDecimos onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.list_item_decimo2,parent,false);
+
+        return new ViewHolderDecimos(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolderDecimos holder, int position) {
+        final Decimo posDecimo = listDecimos.get(position);
+        holder.numeroDecimo.setText(posDecimo.getNumero());
+        holder.nombreSorteo.setText(posDecimo.getSorteo());
+        holder.premio.setText(posDecimo.getPremio() + "€");
+       //TODO: Insertar foto en -
+        // holder.foto.setImageResoruce(listDecimos.get(position).getFoto());
+    }
+
+    @Override
+    public int getItemCount() {
+        return listDecimos.size();
+    }
+
+    public void removeItem(int position) {
+        listDecimos.remove(position);
+        // notify the item removed by position
+        // to perform recycler view delete animations
+        // NOTE: don't call notifyDataSetChanged()
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, listDecimos.size());
+    }
+
+    public void restoreItem(Decimo item, int position) {
+        listDecimos.add(position, item);
+        // notify item added by position
+        notifyItemInserted(position);
+    }
+
+
+
 }
