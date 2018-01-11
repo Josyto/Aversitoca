@@ -1,10 +1,12 @@
 package aversitoca.aversitoca;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.media.browse.MediaBrowser;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,6 +14,8 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -23,6 +27,8 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
     RecyclerView recyclerDecimos;
      CoordinatorLayout coordinatorLayout;
     private AdapterDecimos mAdapter;
+    private SwipeRefreshLayout swipeContainer;
+
 
 
 
@@ -30,7 +36,7 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
 
 
         recyclerDecimos = findViewById(R.id.recyclerId);
@@ -58,6 +64,27 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
         ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerDecimos);
 
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+
+            @Override
+            public void onRefresh() {
+
+                consultarListaDecimos();
+
+
+            }
+
+        });
+
+        // Configure the refreshing colors
+
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+
+                android.R.color.holo_green_light,
+
+                android.R.color.holo_orange_light,
+
+                android.R.color.holo_red_light);
 
 
     }
@@ -110,7 +137,8 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
         Decimo decimo =null;
         listDecimos.clear();
         Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
-
+        stopService(new Intent(this, RefreshService.class));
+        startService(new Intent(this, RefreshService.class));
         while (cursor.moveToNext()){
             decimo = new Decimo();
             decimo.setId(cursor.getInt(0));
@@ -120,9 +148,37 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
             decimo.setFoto(cursor.getInt(0));
 
         listDecimos.add(decimo);
-        mAdapter.notifyDataSetChanged();
+
 
         }
+        swipeContainer.setRefreshing(false);
+        mAdapter.notifyDataSetChanged();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()) {
+            case R.id.action_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            case R.id.addButton:
+                startActivity(new Intent(this, AddActivity.class));
+                return true;
+            case R.id.lista2:
+                startActivity(new Intent(this, Main2Activity.class));
+                return true;
+            case R.id.refresh:
+                stopService(new Intent(this, RefreshService.class));
+                startService(new Intent(this, RefreshService.class));
+                return true;
+            default:
+                return false;
+        }
     }
 }
