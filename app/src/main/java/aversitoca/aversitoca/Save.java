@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import static android.support.v4.app.ActivityCompat.requestPermissions;
+
 
 /**
  * Created by josyt on 11/01/2018.

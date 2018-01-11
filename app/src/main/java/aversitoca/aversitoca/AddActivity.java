@@ -107,6 +107,12 @@ public class AddActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        int permission = ActivityCompat.checkSelfPermission(AddActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                        if (permission != PackageManager.PERMISSION_GRANTED) {
+                            // We don't have permission so prompt the user
+                            ActivityCompat.requestPermissions(AddActivity.this, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE
+                            );
+                        }
                         startActivityForResult(cameraIntent, CAMERA_REQUEST);
 
 
@@ -129,12 +135,7 @@ public class AddActivity extends Activity {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            int permission = ActivityCompat.checkSelfPermission(AddActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-            if (permission != PackageManager.PERMISSION_GRANTED) {
-                // We don't have permission so prompt the user
-                ActivityCompat.requestPermissions(AddActivity.this, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE
-                );
-            }
+
             Save savefile = new Save();
             uri = savefile.SaveImage(this,imageBitmap);
 
