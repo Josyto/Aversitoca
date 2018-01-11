@@ -21,13 +21,14 @@ import java.net.URL;
 
 
 public class RefreshService extends IntentService {
+
+    //Obtenemos preferencias
     SharedPreferences prefs = PreferenceManager. getDefaultSharedPreferences (this);
-    int delayPrefs= prefs.getInt("tiempomin","1");
+    int delayPrefs= prefs.getInt("tiempomin",1);
     //minutos a milis
     int delaymilis= delayPrefs*60000;
 
     static final String TAG = "RefreshService";
-    static final int DELAY = 30000; //medio minuto
     static final String URLNAVIDAD = "https://api.elpais.com/ws/LoteriaNavidadPremiados?s=1";
     static final String URLNINO = "https://api.elpais.com/ws/LoteriaNinoPremiados?s=1";
     private boolean runFlag = false;
@@ -181,7 +182,7 @@ public class RefreshService extends IntentService {
 
                 }
 
-                Thread.sleep(DELAY);
+                Thread.sleep(delaymilis);
 
             }
         }
