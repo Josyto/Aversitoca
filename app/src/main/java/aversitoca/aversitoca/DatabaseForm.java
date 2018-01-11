@@ -9,7 +9,7 @@ import android.provider.BaseColumns;
 
 public class DatabaseForm {
     public static final String DB_NAME = "timeline_db";
-    public static final int DB_VERSION = 2;
+    public static final int DB_VERSION = 3;
     public static final String TABLE = "status";
     public static final String DEFAULT_SORT = Column.ID + " DESC";
 

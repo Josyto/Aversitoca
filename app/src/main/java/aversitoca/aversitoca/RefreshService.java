@@ -59,6 +59,9 @@ public class RefreshService extends IntentService {
         try {
             while (runFlag) {
                 if (cursor.getCount() > 0) {
+
+
+
                     for (int i = 0; i < cursor.getCount(); i++) {
                         cursor.moveToNext();
 
@@ -95,8 +98,12 @@ public class RefreshService extends IntentService {
                     }
                 }
 
+
+
                 Thread.sleep(DELAY);
                 cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
+
+
             }
         }
         catch (InterruptedException e){
