@@ -1,9 +1,14 @@
 package aversitoca.aversitoca;
 
 import android.app.IntentService;
+import android.content.BroadcastReceiver;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -121,5 +126,6 @@ public class RefreshService extends IntentService {
 
 
     }
+
 
 }

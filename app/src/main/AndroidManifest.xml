@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,11 +27,11 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/action_settings"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Main2Activity" />
         <activity
             android:name=".AddActivity"
             android:label="@string/add_ticket"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".Main2Activity" />
 
         <provider
             android:name=".StatusProvider"
@@ -43,7 +43,12 @@
             android:enabled="true"
             android:exported="false" />
 
-        <activity android:name=".Main2Activity"></activity>
+
+        <receiver android:name="aversitoca.aversitoca.NetWatcher">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

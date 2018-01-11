@@ -170,9 +170,6 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
             case R.id.addButton:
                 startActivity(new Intent(this, AddActivity.class));
                 return true;
-            case R.id.lista2:
-                startActivity(new Intent(this, Main2Activity.class));
-                return true;
             case R.id.refresh:
                 stopService(new Intent(this, RefreshService.class));
                 startService(new Intent(this, RefreshService.class));
@@ -181,4 +178,6 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
                 return false;
         }
     }
+
+
 }
