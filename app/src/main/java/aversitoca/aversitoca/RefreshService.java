@@ -74,7 +74,7 @@ public class RefreshService extends IntentService {
                         boleto = cursor.getString(1);
 
                         //SOLICITUD A API
-                        url = new URL("http://api.elpais.com/ws/LoteriaNavidadPremiados?n="+boleto);
+                        url = new URL("https://api.elpais.com/ws/LoteriaNavidadPremiados?n="+boleto);
                         urlConnection = (HttpURLConnection) url.openConnection();
                         InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
@@ -90,7 +90,8 @@ public class RefreshService extends IntentService {
                         line = split[1];
                         jsonObject = new JSONObject(line);
 
-                        if(jsonObject.getString("error")=="0"){
+
+                        if(jsonObject.getString("error").equals("0")){
                             premio = jsonObject.getString("premio");
                         }else premio = "0";
 
