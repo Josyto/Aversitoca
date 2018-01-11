@@ -14,10 +14,11 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main2Activity extends AppCompatActivity implements RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
 
-    ArrayList<Decimo> listDecimos;
+    List<Decimo> listDecimos;
     RecyclerView recyclerDecimos;
      CoordinatorLayout coordinatorLayout;
     private AdapterDecimos mAdapter;
@@ -42,13 +43,10 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
         recyclerDecimos.setLayoutManager(mLayoutManager);
         recyclerDecimos.setItemAnimator(new DefaultItemAnimator());
         recyclerDecimos.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
+        recyclerDecimos.setAdapter(mAdapter);
 
         consultarListaDecimos();
 
-
-        AdapterDecimos adapter=new AdapterDecimos((listDecimos));
-        recyclerDecimos.setAdapter(adapter);
 
         // adding item touch helper
         // only ItemTouchHelper.LEFT added to detect Right to Left swipe
@@ -86,7 +84,7 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
 
             // remove the item from recycler view
             mAdapter.removeItem(viewHolder.getAdapterPosition());
-
+            consultarListaDecimos();
             // showing snack bar with Undo option
             Snackbar snackbar = Snackbar
                     .make(coordinatorLayout, name + " Eliminado!", Snackbar.LENGTH_LONG);
