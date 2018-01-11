@@ -111,7 +111,6 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
 
             // remove the item from recycler view
             mAdapter.removeItem(viewHolder.getAdapterPosition());
-            consultarListaDecimos();
             // showing snack bar with Undo option
 
             Snackbar snackbar = Snackbar
