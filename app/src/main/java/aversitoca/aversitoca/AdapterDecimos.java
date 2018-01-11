@@ -76,14 +76,19 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
         switch (posDecimo.getCelebrado()){
             case 0:
                 holder.premio.setText(R.string.notHappened);
+                break;
             case 1:
                 holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.happening));
+                break;
             case 2:
                 holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.provisional));
+                break;
             case 3:
                 holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.provisional));
+                break;
             case 4:
                 holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.definitive));
+                break;
         }
 
 
@@ -92,6 +97,9 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
         String fotostring=posDecimo.getFoto();
         Bitmap myBitmap = BitmapFactory.decodeFile(fotostring);
         holder.foto.setImageBitmap(myBitmap);
+        if (myBitmap==null){
+            holder.foto.setImageResource(R.mipmap.ic_launcher);
+        }
     }
 
     @Override
