@@ -12,9 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.List;
 
-/**
- * Created by Marcos Muñoz on 10/01/2018.
- */
+
 
 public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHolderDecimos>{
 

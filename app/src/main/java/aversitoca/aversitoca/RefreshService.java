@@ -21,10 +21,15 @@ import java.net.URL;
 public class RefreshService extends IntentService {
     static final String TAG = "RefreshService";
     static final int DELAY = 30000; //medio minuto
+    static final String URLNAVIDAD = "https://api.elpais.com/ws/LoteriaNavidadPremiados?s=1";
+    static final String URLNINO = "https://api.elpais.com/ws/LoteriaNinoPremiados?s=1";
     private boolean runFlag = false;
-    String id,boleto,premio,line;
+    InputStream in;
+    BufferedReader reader;
+    String id,boleto,premio,line, sorteo;
     HttpURLConnection urlConnection;
     URL url;
+    String[] split;
     StringBuilder result = new StringBuilder();
     JSONObject jsonObject;
     ContentValues contentValues;
@@ -52,57 +57,124 @@ public class RefreshService extends IntentService {
         this.runFlag = true;
 
 
-        //SELECT
-        Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
-
 
         try {
             while (runFlag) {
-                if (cursor.getCount() > 0) {
 
+                //COMPROBAMOS SI SE HA REALIZADO EL SORTEO DE NAVIDAD
+                url = new URL(URLNAVIDAD);
+                urlConnection = (HttpURLConnection) url.openConnection();
+                in = new BufferedInputStream(urlConnection.getInputStream());
+                reader = new BufferedReader(new InputStreamReader(in));
 
-
-                    for (int i = 0; i < cursor.getCount(); i++) {
-                        cursor.moveToNext();
-
-                        id = cursor.getString(0);
-                        boleto = cursor.getString(1);
-
-                        //SOLICITUD A API
-                        url = new URL("https://api.elpais.com/ws/LoteriaNavidadPremiados?n="+boleto);
-                        urlConnection = (HttpURLConnection) url.openConnection();
-                        InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-                        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-
-
-                        while ((line = reader.readLine()) != null) {
-                            result.append(line);
-                        }
-
-                        line = result.toString();
-                        result = new StringBuilder();
-                        String[] split = line.split("=");
-                        line = split[1];
-                        jsonObject = new JSONObject(line);
-
-
-                        if(jsonObject.getString("error").equals("0")){
-                            premio = jsonObject.getString("premio");
-                        }else premio = "0";
-
-                        contentValues = new ContentValues();
-                        contentValues.put("PREMIO",premio);
-                        //UPDATE
-                        getContentResolver().update(DatabaseForm.CONTENT_URI,contentValues, DatabaseForm.Column.BOLETO + " = ?", new String[]{boleto});
-
-                    }
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
                 }
 
+                line = result.toString();
+                result = new StringBuilder();
+                split = line.split("=");
+                line = split[1];
+                jsonObject = new JSONObject(line);
+                String estadosorteonavidad = jsonObject.getString("status");
 
+                //COMPROBAMOS SI SE HA REALIZADO EL SORTEO DEL NIÑO
+                url = new URL(URLNINO);
+                urlConnection = (HttpURLConnection) url.openConnection();
+                in = new BufferedInputStream(urlConnection.getInputStream());
+                reader = new BufferedReader(new InputStreamReader(in));
+
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                }
+
+                line = result.toString();
+                result = new StringBuilder();
+                split = line.split("=");
+                line = split[1];
+                jsonObject = new JSONObject(line);
+                String estadosorteonino = jsonObject.getString("status");
+
+                //Si algún sorteo se está realizando
+                if(!estadosorteonavidad.equals("0")||!estadosorteonino.equals("0")) {
+
+                    //SELECT
+                    Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI, null, null, null, null);
+                    if (cursor.getCount() > 0) {
+                        for (int i = 0; i < cursor.getCount(); i++) {
+                            cursor.moveToNext();
+                            id = cursor.getString(0);
+                            boleto = cursor.getString(1);
+                            sorteo = cursor.getString(3);
+
+
+                            if(sorteo.equals("Loteria de Navidad")) {
+                                //SOLICITUD A API
+                                url = new URL("https://api.elpais.com/ws/LoteriaNavidadPremiados?n=" + boleto);
+                                urlConnection = (HttpURLConnection) url.openConnection();
+                                in = new BufferedInputStream(urlConnection.getInputStream());
+                                reader = new BufferedReader(new InputStreamReader(in));
+
+
+                                while ((line = reader.readLine()) != null) {
+                                    result.append(line);
+                                }
+
+                                line = result.toString();
+                                result = new StringBuilder();
+                                split = line.split("=");
+                                line = split[1];
+                                jsonObject = new JSONObject(line);
+
+
+                                if (jsonObject.getString("error").equals("0")) {
+                                    premio = jsonObject.getString("premio");
+                                } else premio = "0";
+
+                                contentValues = new ContentValues();
+                                contentValues.put("PREMIO", premio);
+                                contentValues.put("CELEBRADO", estadosorteonavidad);
+                                //UPDATE
+                                getContentResolver().update(DatabaseForm.CONTENT_URI, contentValues, DatabaseForm.Column.ID + " = ?", new String[]{id});
+                            }
+                            else{
+                                //SOLICITUD A API
+                                url = new URL("https://api.elpais.com/ws/LoteriaNinoPremiados?n=" + boleto);
+                                urlConnection = (HttpURLConnection) url.openConnection();
+                                in = new BufferedInputStream(urlConnection.getInputStream());
+                                reader = new BufferedReader(new InputStreamReader(in));
+
+
+                                while ((line = reader.readLine()) != null) {
+                                    result.append(line);
+                                }
+
+                                line = result.toString();
+                                result = new StringBuilder();
+                                split = line.split("=");
+                                line = split[1];
+                                jsonObject = new JSONObject(line);
+
+
+                                if (jsonObject.getString("error").equals("0")) {
+                                    premio = jsonObject.getString("premio");
+                                } else premio = "0";
+
+                                contentValues = new ContentValues();
+                                contentValues.put("PREMIO", premio);
+                                contentValues.put("CELEBRADO", estadosorteonino);
+                                //UPDATE
+                                getContentResolver().update(DatabaseForm.CONTENT_URI, contentValues, DatabaseForm.Column.ID + " = ?", new String[]{id});
+                            }
+
+
+
+                        }
+                    }
+
+                }
 
                 Thread.sleep(DELAY);
-                cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
-
 
             }
         }
