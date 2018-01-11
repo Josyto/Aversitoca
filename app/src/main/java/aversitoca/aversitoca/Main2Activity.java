@@ -131,9 +131,9 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
 
 
 
-    private void consultarListaDecimos() {
+    protected void consultarListaDecimos() {
         Decimo decimo =null;
-        listDecimos.clear();
+       listDecimos.clear();
         Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
         stopService(new Intent(this, RefreshService.class));
         startService(new Intent(this, RefreshService.class));
@@ -146,7 +146,6 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
             decimo.setFoto(cursor.getInt(0));
 
         listDecimos.add(decimo);
-
 
         }
         swipeContainer.setRefreshing(false);

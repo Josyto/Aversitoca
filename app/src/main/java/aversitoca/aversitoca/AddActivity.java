@@ -95,6 +95,14 @@ public class AddActivity extends Activity {
 
     }
 
+
+    @Override
+    protected void onDestroy() {
+        Main2Activity mActivity= new Main2Activity(); mActivity.consultarListaDecimos();
+
+        super.onDestroy();
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             Bundle extras = data.getExtras();
