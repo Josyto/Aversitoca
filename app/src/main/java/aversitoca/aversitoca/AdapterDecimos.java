@@ -94,9 +94,10 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
 
         //Insertar foto en lista
         String fotostring=posDecimo.getFoto();
-        Bitmap myBitmap = BitmapFactory.decodeFile(fotostring);
-        holder.foto.setImageBitmap(myBitmap);
-        if (myBitmap==null){
+        if (fotostring.length()!=0) {
+            Bitmap myBitmap = BitmapFactory.decodeFile(fotostring);
+            holder.foto.setImageBitmap(myBitmap);
+        } else{
             holder.foto.setImageResource(R.mipmap.ic_launcher);
         }
     }
