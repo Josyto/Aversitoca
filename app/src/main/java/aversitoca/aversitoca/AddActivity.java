@@ -59,7 +59,9 @@ public class AddActivity extends Activity {
                     values.clear();
                     values.put(DatabaseForm.Column.BOLETO, codigo);
                     values.put(DatabaseForm.Column.SORTEO, sorteo);
+                    values.put(DatabaseForm.Column.PREMIO, 0);
                     getContentResolver().insert(DatabaseForm.CONTENT_URI, values);
+                    finish();
             }
         });
 
@@ -78,8 +80,10 @@ public class AddActivity extends Activity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(photo);
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+
+            imageView.setImageBitmap(imageBitmap);
         }
     }
 
