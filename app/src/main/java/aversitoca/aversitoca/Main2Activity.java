@@ -86,9 +86,7 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
 
                 android.R.color.holo_red_light);
 
-
     }
-
 
 
 
