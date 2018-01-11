@@ -77,6 +77,8 @@ public class AddActivity extends Activity {
                         values.put(DatabaseForm.Column.BOLETO, codigo);
                         values.put(DatabaseForm.Column.SORTEO, sorteo);
                         values.put(DatabaseForm.Column.PREMIO, 0);
+                        values.put(DatabaseForm.Column.COMPROBADO, 0);
+                        values.put(DatabaseForm.Column.CELEBRADO, 0);
                         getContentResolver().insert(DatabaseForm.CONTENT_URI, values);
 
 
@@ -111,9 +113,6 @@ public class AddActivity extends Activity {
             imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         }
     }
-
-
-
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {

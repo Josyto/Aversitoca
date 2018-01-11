@@ -90,7 +90,6 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
     }
 
 
-
     /**
      * callback when recycler view is swiped
      * item will be removed on swiped
@@ -130,6 +129,8 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
                     values.put(DatabaseForm.Column.BOLETO, deletedItem.getNumero());
                     values.put(DatabaseForm.Column.SORTEO, deletedItem.getSorteo());
                     values.put(DatabaseForm.Column.PREMIO, deletedItem.getPremio());
+                    values.put(DatabaseForm.Column.COMPROBADO, deletedItem.getComprobado());
+                    values.put(DatabaseForm.Column.CELEBRADO, deletedItem.getCelebrado());
                     getContentResolver().insert(DatabaseForm.CONTENT_URI, values);
                 }
             });
@@ -138,9 +139,6 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
 
         }
     }
-
-
-
 
     protected void consultarListaDecimos() {
         Decimo decimo =null;
@@ -155,8 +153,10 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
             decimo.setPremio(cursor.getString(2));
             decimo.setSorteo(cursor.getString(3));
             decimo.setFoto(cursor.getInt(0));
+            decimo.setComprobado(cursor.getInt(4));
+            decimo.setCelebrado(cursor.getInt(5));
 
-        listDecimos.add(decimo);
+            listDecimos.add(decimo);
 
         }
         swipeContainer.setRefreshing(false);

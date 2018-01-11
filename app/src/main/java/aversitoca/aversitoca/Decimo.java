@@ -6,18 +6,17 @@ package aversitoca.aversitoca;
 
 public class Decimo {
 
-    private String numero;
-    private String sorteo;
-    private String premio;
-    private int foto;
-    private int id;
+    private String numero, sorteo, premio;
+    private int foto, id , comprobado, celebrado;
 
-    public Decimo(String numero, String sorteo, String premio, int foto,int id) {
+    public Decimo(String numero, String sorteo, String premio, int foto, int id, int comprobado, int celebrado) {
         this.numero = numero;
         this.sorteo = sorteo;
         this.premio = premio;
         this.foto = foto;
         this.id = id;
+        this.comprobado = comprobado;
+        this.celebrado = celebrado;
     }
 
     public Decimo() {
@@ -25,7 +24,7 @@ public class Decimo {
     }
 
     public String getNumero() {
-        return numero;
+        return this.numero;
     }
 
     public void setNumero(String numero) {
@@ -33,7 +32,7 @@ public class Decimo {
     }
 
     public String getSorteo() {
-        return sorteo;
+        return this.sorteo;
     }
 
     public void setSorteo(String sorteo) {
@@ -41,7 +40,7 @@ public class Decimo {
     }
 
     public String getPremio() {
-        return premio;
+        return this.premio;
     }
 
     public void setPremio(String premio) {
@@ -49,7 +48,7 @@ public class Decimo {
     }
 
     public int getFoto() {
-        return foto;
+        return this.foto;
     }
 
     public void setFoto(int foto) {
@@ -57,10 +56,26 @@ public class Decimo {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getComprobado() {
+        return this.comprobado;
+    }
+
+    public void setComprobado(int comprobado) {
+        this.comprobado = comprobado;
+    }
+
+    public int getCelebrado() {
+        return this.celebrado;
+    }
+
+    public void setCelebrado(int celebrado) {
+        this.celebrado = celebrado;
     }
 }
