@@ -14,9 +14,4 @@
         android:title="@string/refresh"
         />
 
-    <item
-        android:id="@+id/addButton"
-        android:title="@string/add_new"
-        />
-
 </menu>
