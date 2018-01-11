@@ -81,12 +81,15 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
             final Decimo deletedItem = listDecimos.get(viewHolder.getAdapterPosition());
             final int deletedIndex = viewHolder.getAdapterPosition();
 
+            String boleto = ((AdapterDecimos.ViewHolderDecimos) viewHolder).numeroDecimo.getText().toString();
+            getContentResolver().delete(DatabaseForm.CONTENT_URI,DatabaseForm.Column.BOLETO + " = ?", new String[]{boleto});
+
             // remove the item from recycler view
             mAdapter.removeItem(viewHolder.getAdapterPosition());
 
             // showing snack bar with Undo option
             Snackbar snackbar = Snackbar
-                    .make(coordinatorLayout, name + " removed from cart!", Snackbar.LENGTH_LONG);
+                    .make(coordinatorLayout, name + " Eliminado!", Snackbar.LENGTH_LONG);
             snackbar.setAction("UNDO", new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

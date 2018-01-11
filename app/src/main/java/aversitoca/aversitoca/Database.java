@@ -17,8 +17,8 @@ public class Database extends SQLiteOpenHelper {
     // Llamado para crear la tabla
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = String.format("create table %s (%s integer primary key autoincrement, %s integer, %s integer, %s text)",DatabaseForm.TABLE,
-                DatabaseForm.Column.ID, DatabaseForm.Column.BOLETO, DatabaseForm.Column.PREMIO, DatabaseForm.Column.SORTEO);
+        String sql = String.format("create table %s (%s integer primary key autoincrement, %s integer, %s integer, %s text, CONSTRAINT boleto_unico UNIQUE (%s))",DatabaseForm.TABLE,
+                DatabaseForm.Column.ID, DatabaseForm.Column.BOLETO, DatabaseForm.Column.PREMIO, DatabaseForm.Column.SORTEO, DatabaseForm.Column.BOLETO);
         Log.d(TAG, "onCreate con SQL: "+ sql);
         db.execSQL(sql);
     }
