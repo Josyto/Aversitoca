@@ -24,6 +24,10 @@
     <string name="ticketLengthRequired">El decimo debe tener 5 cifras.</string>
     <string name="noNet">La conexión a Internet no está disponible</string>
     <string name="logo">Naviniño: Tu App en Navidad</string>
+    <string name="notHappened">No Celebrado</string>
+    <string name="happening">Sorteo en curso</string>
+    <string name="provisional">Listado Provisional</string>
+    <string name="definitive">Listado Definitivo</string>
 
     <string-array name="sorteos_array">
         <item>Loteria de Navidad</item>

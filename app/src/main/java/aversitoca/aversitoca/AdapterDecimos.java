@@ -68,8 +68,27 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
         final Decimo posDecimo = listDecimos.get(position);
         holder.numeroDecimo.setText(posDecimo.getNumero());
         holder.nombreSorteo.setText(posDecimo.getSorteo());
+
+        //
+        int estado= posDecimo.getCelebrado();
         holder.premio.setText(posDecimo.getPremio() + "€");
-       //TODO: Insertar foto en -
+
+        switch (posDecimo.getCelebrado()){
+            case 0:
+                holder.premio.setText(R.string.notHappened);
+            case 1:
+                holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.happening));
+            case 2:
+                holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.provisional));
+            case 3:
+                holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.provisional));
+            case 4:
+                holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.definitive));
+        }
+
+
+
+        //Insertar foto en lista
         String fotostring=posDecimo.getFoto();
         Bitmap myBitmap = BitmapFactory.decodeFile(fotostring);
         holder.foto.setImageBitmap(myBitmap);
