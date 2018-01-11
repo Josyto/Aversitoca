@@ -69,7 +69,7 @@ public class AddActivity extends Activity {
                     if (codigo.length()!=5){
                         coordinatorLayout = findViewById(R.id.coordinator_layoutnuevo);
                         Snackbar snackbar = Snackbar
-                                .make(coordinatorLayout, "El boleto debe tener 5 cifras", Snackbar.LENGTH_LONG);
+                                .make(coordinatorLayout, R.string.ticketLengthRequired, Snackbar.LENGTH_LONG);
                         snackbar.setActionTextColor(Color.YELLOW);
                         snackbar.show();
                     }

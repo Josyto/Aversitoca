@@ -58,7 +58,7 @@ public class NetWatcher extends BroadcastReceiver {
             }
         }
         Log.v(LOG_TAG, "La conexión a Internet no está disponible");
-        Toast.makeText(context, "La conexión a Internet no está disponible", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, R.string.noNet, Toast.LENGTH_SHORT).show();
         isConnected = false;
         return false;
     }

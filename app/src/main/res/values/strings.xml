@@ -19,6 +19,10 @@
     <string name="deleteButton">Borrar</string>
     <string name="insertaNumeroDecimo">Introduce el numero de tu Decimo</string>
     <string name="delete">Eliminar</string>
+    <string name="Eliminado">Se ha eliminado!</string>
+    <string name="undo">Deshacer</string>
+    <string name="ticketLengthRequired">El decimo debe tener 5 cifras.</string>
+    <string name="noNet">La conexión a Internet no está disponible</string>
 
     <string-array name="sorteos_array">
         <item>Loteria de Navidad</item>
