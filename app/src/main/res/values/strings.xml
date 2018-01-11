@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Naviniño</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="capture_button">Foto</string>
     <string name="add_new">Nuevo Decimo</string>
     <string name="title_activity_camera">Camara</string>
