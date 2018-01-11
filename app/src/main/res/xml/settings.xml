@@ -14,6 +14,7 @@
         android:title="@string/actualizarCada" />
     <SwitchPreference
         android:defaultValue="false"
+        android:digits="true"
         android:disableDependentsState="false"
         android:key="switch_notificaciones"
         android:persistent="true"
