@@ -25,6 +25,6 @@
     <string name="title_activity_camera">Camara</string>
     <string name="photo">Foto</string>
     <string name="action_settings">Ajustes</string>
-    <string name="refresh">Actulizar</string>
+    <string name="refresh">Actualizar</string>
     <string name="notHappened">No Celebrado</string>
 </resources>
