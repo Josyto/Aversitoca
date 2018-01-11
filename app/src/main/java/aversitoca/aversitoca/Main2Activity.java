@@ -2,6 +2,7 @@ package aversitoca.aversitoca;
 
 import android.database.Cursor;
 import android.graphics.Color;
+import android.media.browse.MediaBrowser;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -98,6 +99,7 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
             });
             snackbar.setActionTextColor(Color.YELLOW);
             snackbar.show();
+
         }
     }
 
