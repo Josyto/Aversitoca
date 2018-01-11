@@ -65,14 +65,15 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolderDecimos holder, int position) {
+        //Carga datos del decimo en la lista
         final Decimo posDecimo = listDecimos.get(position);
         holder.numeroDecimo.setText(posDecimo.getNumero());
         holder.nombreSorteo.setText(posDecimo.getSorteo());
 
-        //
-        int estado= posDecimo.getCelebrado();
-        holder.premio.setText(posDecimo.getPremio() + "€");
+        //holder.premio.setText(posDecimo.getPremio() + "€");
 
+
+        //Se informa al usuario del estado del sorteo, y del premio conocido en cada momento
         switch (posDecimo.getCelebrado()){
             case 0:
                 holder.premio.setText(R.string.notHappened);

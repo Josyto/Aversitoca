@@ -19,4 +19,6 @@
     <string name="happening">Sorteo en curso</string>
     <string name="provisional">Listado Provisional</string>
     <string name="definitive">Listado Definitivo</string>
+    <string name="imgNotSaved">¡No se ha podido guardar la imagen!</string>
+    <string name="imgSaved">Imagen guardada en la galería.</string>
 </resources>
