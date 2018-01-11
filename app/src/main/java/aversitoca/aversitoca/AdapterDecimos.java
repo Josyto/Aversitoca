@@ -1,5 +1,6 @@
 package aversitoca.aversitoca;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,13 @@ import java.util.ArrayList;
 
 public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHolderDecimos>{
 
+    private Context context;
     ArrayList<Decimo> listDecimos;
+
+    public AdapterDecimos(Context context,ArrayList<Decimo> listDecimos) {
+        this.context=context;
+        this.listDecimos = listDecimos;
+    }
 
     public AdapterDecimos(ArrayList<Decimo> listDecimos) {
         this.listDecimos = listDecimos;
@@ -51,6 +58,7 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
         // to perform recycler view delete animations
         // NOTE: don't call notifyDataSetChanged()
         notifyItemRemoved(position);
+        notifyDataSetChanged();
     }
 
     public void restoreItem(Decimo item, int position) {

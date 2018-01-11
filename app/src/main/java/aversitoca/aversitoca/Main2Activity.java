@@ -15,7 +15,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public class Main2Activity extends AppCompatActivity {
+public class Main2Activity extends AppCompatActivity implements RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
 
     ArrayList<Decimo> listDecimos;
     RecyclerView recyclerDecimos;
@@ -30,9 +30,12 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
 
-        listDecimos=new ArrayList<>();
-        recyclerDecimos= (RecyclerView) findViewById(R.id.recyclerId);
+
+        recyclerDecimos = findViewById(R.id.recyclerId);
         coordinatorLayout = findViewById(R.id.coordinator_layout);
+        listDecimos = new ArrayList<>();
+        mAdapter = new AdapterDecimos(this, listDecimos);
+
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerDecimos.setLayoutManager(new LinearLayoutManager(this));
@@ -53,7 +56,7 @@ public class Main2Activity extends AppCompatActivity {
         // add pass ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT as param
 
         //ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
-        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT);
+        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerDecimos);
 
 
@@ -62,16 +65,17 @@ public class Main2Activity extends AppCompatActivity {
 
 
 
+
     /**
      * callback when recycler view is swiped
      * item will be removed on swiped
      * undo option will be provided in snackbar to restore the item
      */
-
+    @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {
         if (viewHolder instanceof AdapterDecimos.ViewHolderDecimos) {
             // get the removed item name to display it in snack bar
-            String name = listDecimos.get(viewHolder.getAdapterPosition()).getPremio();
+            String name = listDecimos.get(viewHolder.getAdapterPosition()).getNumero();
 
             // backup of removed item for undo purpose
             final Decimo deletedItem = listDecimos.get(viewHolder.getAdapterPosition());
@@ -98,9 +102,10 @@ public class Main2Activity extends AppCompatActivity {
 
 
 
+
     private void consultarListaDecimos() {
         Decimo decimo =null;
-
+        listDecimos.clear();
         Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
 
         while (cursor.moveToNext()){
@@ -112,6 +117,7 @@ public class Main2Activity extends AppCompatActivity {
             decimo.setFoto(cursor.getInt(0));
 
         listDecimos.add(decimo);
+        mAdapter.notifyDataSetChanged();
 
         }
 
