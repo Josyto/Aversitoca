@@ -112,6 +112,7 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
             mAdapter.removeItem(viewHolder.getAdapterPosition());
             consultarListaDecimos();
             // showing snack bar with Undo option
+
             Snackbar snackbar = Snackbar
                     .make(coordinatorLayout, name + " Eliminado!", Snackbar.LENGTH_LONG);
             snackbar.setAction("UNDO", new View.OnClickListener() {

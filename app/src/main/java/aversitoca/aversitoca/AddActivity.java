@@ -10,6 +10,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -56,6 +57,7 @@ public class AddActivity extends Activity {
                 // La logica de jose
                     String codigo = ((EditText) findViewById(R.id.input_name)).getText().toString();
                     String sorteo = ((Spinner) findViewById(R.id.sorteos_spinner)).getSelectedItem().toString();
+                    hideSoftKeyBoard();
                     if (codigo.length()!=5){
                         coordinatorLayout = findViewById(R.id.coordinator_layoutnuevo);
                         Snackbar snackbar = Snackbar
@@ -63,6 +65,7 @@ public class AddActivity extends Activity {
                         snackbar.setActionTextColor(Color.YELLOW);
                         snackbar.show();
                     }
+
                     else {
                         //Imprimimos las actualizaciones en el log
                         Log.d("insertBase", String.format("%s", codigo));
@@ -93,6 +96,15 @@ public class AddActivity extends Activity {
         });
 
 
+    }
+
+
+    private void hideSoftKeyBoard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+
+        if(imm.isAcceptingText()) { // verify if the soft keyboard is open
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
     }
 
 
