@@ -1,5 +1,6 @@
 package aversitoca.aversitoca;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -119,8 +120,17 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
                 @Override
                 public void onClick(View view) {
 
-                    // undo is selected, restore the deleted item
+                    // Si seleccionamos undo entonces recuperamos el boleto y
+                    // lo introducimos en la base de datos de nuevo
                     mAdapter.restoreItem(deletedItem, deletedIndex);
+
+                    ContentValues values = new ContentValues();
+                    values.clear();
+
+                    values.put(DatabaseForm.Column.BOLETO, deletedItem.getNumero());
+                    values.put(DatabaseForm.Column.SORTEO, deletedItem.getSorteo());
+                    values.put(DatabaseForm.Column.PREMIO, deletedItem.getPremio());
+                    getContentResolver().insert(DatabaseForm.CONTENT_URI, values);
                 }
             });
             snackbar.setActionTextColor(Color.YELLOW);
