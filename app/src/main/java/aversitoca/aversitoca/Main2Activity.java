@@ -106,8 +106,8 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
             final Decimo deletedItem = listDecimos.get(viewHolder.getAdapterPosition());
             final int deletedIndex = viewHolder.getAdapterPosition();
 
-            String boleto = ((AdapterDecimos.ViewHolderDecimos) viewHolder).numeroDecimo.getText().toString();
-            getContentResolver().delete(DatabaseForm.CONTENT_URI,DatabaseForm.Column.BOLETO + " = ?", new String[]{boleto});
+            int boleto = deletedItem.getId();
+            getContentResolver().delete(DatabaseForm.CONTENT_URI,DatabaseForm.Column.ID + " = ?", new int[]{boleto});
 
             // remove the item from recycler view
             mAdapter.removeItem(viewHolder.getAdapterPosition());
