@@ -142,7 +142,7 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
     }
 
     protected void consultarListaDecimos() {
-        Decimo decimo =null;
+        Decimo decimo = null;
        listDecimos.clear();
         Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
         stopService(new Intent(this, RefreshService.class));
@@ -182,10 +182,6 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
         switch(item.getItemId()) {
             case R.id.action_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
-                return true;
-            case R.id.addButton:
-                Intent intent=new Intent(Main2Activity.this,AddActivity.class);
-                startActivityForResult(intent,5);
                 return true;
             case R.id.refresh:
                 stopService(new Intent(this, RefreshService.class));
