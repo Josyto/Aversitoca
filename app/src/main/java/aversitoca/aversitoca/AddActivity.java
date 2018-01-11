@@ -38,7 +38,7 @@ public class AddActivity extends Activity {
 
 
         // La imagen del boleto
-        this.imageView = (ImageView)this.findViewById(R.id.imageView1);
+        this.imageView = (ImageView)this.findViewById(R.id.preview);
         FloatingActionButton photoButton = (FloatingActionButton) this.findViewById(R.id.button1);
         Button guardar = (Button) this.findViewById(R.id.btn_signup);
 
@@ -65,11 +65,11 @@ public class AddActivity extends Activity {
             }
         });
 
-        // Abrimos la camara
-        photoButton.setOnClickListener(new View.OnClickListener() {
+                // Abrimos la camara
+                photoButton.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
+                    @Override
+                    public void onClick(View v) {
                 Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(cameraIntent, CAMERA_REQUEST);
             }

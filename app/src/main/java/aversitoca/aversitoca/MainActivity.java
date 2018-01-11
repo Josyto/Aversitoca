@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //arancar servicio
+        //arrancar servicio
         startService(new Intent(this, RefreshService.class));
 
         // Comprobar si la actividad ya ha sido creada con anterioridad
