@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
 
             @Override
             public void onRefresh() {
-
                 consultarListaDecimos();
 
 
@@ -88,12 +87,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
 
     }
 
-
-    /**
-     * callback when recycler view is swiped
-     * item will be removed on swiped
-     * undo option will be provided in snackbar to restore the item
-     */
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {
         if (viewHolder instanceof AdapterDecimos.ViewHolderDecimos) {
@@ -142,9 +135,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
     protected void consultarListaDecimos() {
         Decimo decimo;
        listDecimos.clear();
-        Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
         stopService(new Intent(this, RefreshService.class));
         startService(new Intent(this, RefreshService.class));
+        Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
         while (cursor.moveToNext()){
             decimo = new Decimo();
             decimo.setId(cursor.getInt(0));
@@ -158,10 +151,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
             listDecimos.add(decimo);
 
         }
+
         swipeContainer.setRefreshing(false);
         mAdapter.notifyDataSetChanged();
 
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

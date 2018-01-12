@@ -26,7 +26,6 @@ import android.content.ContentValues;
 
 public class AddActivity extends Activity {
     private static final int CAMERA_REQUEST = 1888;
-    private ImageView imageView;
     CoordinatorLayout coordinatorLayout;
     String uri = "";
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -62,7 +61,7 @@ public class AddActivity extends Activity {
         guardar.setOnClickListener(new View.OnClickListener () {
             @Override
             public void onClick(View v) {
-                // La logica de jose
+
                     String codigo = ((EditText) findViewById(R.id.input_name)).getText().toString();
                     String sorteo = ((Spinner) findViewById(R.id.sorteos_spinner)).getSelectedItem().toString();
                     hideSoftKeyBoard();
