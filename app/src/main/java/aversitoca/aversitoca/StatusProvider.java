@@ -16,6 +16,9 @@ import android.util.Log;
 
 public class StatusProvider extends ContentProvider {
 
+    // Establecemos un adaptador para el acceso a datos que desacople la logica de la aplicacion con
+    // las peticiones a la base de datos
+
     private static final String TAG = StatusProvider.class.getSimpleName();
     private Database database;
     private static final UriMatcher sURIMatcher;
@@ -60,11 +63,6 @@ public class StatusProvider extends ContentProvider {
         return cursor;
     }
 
-
-
-
-
-
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
@@ -79,12 +77,6 @@ public class StatusProvider extends ContentProvider {
                 throw new IllegalArgumentException("uri incorrecta: " + uri);
         }
     }
-
-
-
-
-
-
 
     @Nullable
     @Override
@@ -108,9 +100,6 @@ public class StatusProvider extends ContentProvider {
 
         return ret;
     }
-
-
-
 
     @Override
     public int delete(@NonNull Uri uri, @Nullable String s, @Nullable String[] strings) {
@@ -139,10 +128,6 @@ public class StatusProvider extends ContentProvider {
 
 
     }
-
-
-
-
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {

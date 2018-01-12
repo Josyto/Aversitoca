@@ -9,6 +9,9 @@ package aversitoca.aversitoca;
 
 public class Decimo {
 
+    // Representacion de un boleto que es añadido a la lista para su posterior visualizacion en
+    // la pantalla principal
+
     private String numero, sorteo, premio, foto;
     private int id , comprobado, celebrado;
 

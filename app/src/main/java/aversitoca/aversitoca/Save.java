@@ -20,8 +20,9 @@ import java.util.Calendar;
 
 public class Save {
 
+    // Se encarga de guardar la imagen en la galeria del dispositivo
+
     private Context TheThis;
-    private File file;
 
     public String SaveImage(Context context, Bitmap ImageToSave) {
 
