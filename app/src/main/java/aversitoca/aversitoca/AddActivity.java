@@ -18,7 +18,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.support.design.widget.FloatingActionButton;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.content.ContentValues;
 

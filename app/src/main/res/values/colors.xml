@@ -8,7 +8,6 @@
     <color name="colorSecondaryDark">#c79100</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#000000</color>
-    <color name="SecondaryTextColor">@android:color/secondary_text_dark</color>
     <color name="bg_row_background">#fa315b</color>
     <color name="item_name">#535353</color>
     <color name="description">#a9a9a9</color>

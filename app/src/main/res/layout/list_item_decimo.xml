@@ -29,7 +29,7 @@
             android:layout_toStartOf="@id/delete_icon"
             android:text="@string/delete"
             android:textColor="#fff"
-            android:textSize="13dp" />
+            android:textSize="13sp" />
 
     </RelativeLayout>
 
@@ -58,7 +58,7 @@
             android:maxLines="1"
             tools:text="71198"
             android:textColor="@color/item_name"
-            android:textSize="22dp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/sorteo2"
