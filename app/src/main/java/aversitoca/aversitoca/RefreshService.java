@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,7 +19,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
 public class RefreshService extends IntentService {
     private static final String TAG = "RefreshService";
     private static final String URLNAVIDAD = "https://api.elpais.com/ws/LoteriaNavidadPremiados?s=1";
@@ -26,23 +26,22 @@ public class RefreshService extends IntentService {
     private boolean runFlag = false;
     private StringBuilder result = new StringBuilder();
 
-    //Base de datos
-   // private Database database;
+    // Se trata de un servicio asincrono para la peticion de los valores de los premios para
+    // cada boleto
 
     public RefreshService() {
         super(TAG);
     }
 
 
+    // Mostramos un mensaje de que se ha generado el servicio
     @Override
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "onCreated");
+}
 
-        //database = new Database(this);
-    }
-
-
+    // Se genera la parte de la logica para el servicio
     @Override
     protected void onHandleIntent(Intent intent) {
         Log.d(TAG, "onStarted");
@@ -93,10 +92,11 @@ public class RefreshService extends IntentService {
                 jsonObject = new JSONObject(line);
                 String estadosorteonino = jsonObject.getString("status");
 
-                //Si algún sorteo se está realizando o se ha realizado pero no se han obtenido resultados
+                //Si algún sorteo se está realizando o se ha realizado pero no se han obtenido
+                // ningun resultado
                 if(!estadosorteonavidad.equals("0")||!estadosorteonino.equals("0")) {
 
-                    //SELECT
+                    // SELECT
                     Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI, null, null, null, null);
                     if (cursor.getCount() > 0) {
                         for (int i = 0; i < cursor.getCount(); i++) {
@@ -132,11 +132,14 @@ public class RefreshService extends IntentService {
                                     line = split[1];
                                     jsonObject = new JSONObject(line);
 
-
+                                    // Comprobamos que el resultado de la consulta se OK
                                     if (jsonObject.getString("error").equals("0")) {
                                         premio = jsonObject.getString("premio");
                                     } else premio = "0";
 
+                                    // Actualizamos la base de datos con el nuevo valor del premio
+                                    // en que estado del sorteo nos encontramos y si se ha comprobado
+                                    // median una consulta a la API
                                     contentValues = new ContentValues();
                                     contentValues.put("PREMIO", premio);
                                     contentValues.put("CELEBRADO", estadosorteonavidad);
@@ -162,11 +165,14 @@ public class RefreshService extends IntentService {
                                     line = split[1];
                                     jsonObject = new JSONObject(line);
 
-
+                                    // Comprobamos que el resultado de la consulta se OK
                                     if (jsonObject.getString("error").equals("0")) {
                                         premio = jsonObject.getString("premio");
                                     } else premio = "0";
 
+                                    // Actualizamos la base de datos con el nuevo valor del premio
+                                    // en que estado del sorteo nos encontramos y si se ha comprobado
+                                    // median una consulta a la API
                                     contentValues = new ContentValues();
                                     contentValues.put("PREMIO", premio);
                                     contentValues.put("CELEBRADO", estadosorteonino);
