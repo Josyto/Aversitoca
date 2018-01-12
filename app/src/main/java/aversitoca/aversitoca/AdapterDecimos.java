@@ -1,5 +1,12 @@
 package aversitoca.aversitoca;
 
+/**
+ * Created by Marcos Muñoz.
+ *
+ * Adapter que bindea y genera la lista de decimos
+ * conectado los datos de bbdd con su correspondiente vista
+ */
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

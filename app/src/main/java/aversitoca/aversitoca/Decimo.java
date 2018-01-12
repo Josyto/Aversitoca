@@ -1,10 +1,10 @@
 package aversitoca.aversitoca;
 
 /**
- * Created by Marcos Muñoz on 10/01/2018.
+ * Created by Marcos Muñoz.
  *
  * Clase que representa los decimos introducidos
- * Contiene
+ * Contiene los datos que se almacenan del decimo en la bbdd
  */
 
 public class Decimo {
