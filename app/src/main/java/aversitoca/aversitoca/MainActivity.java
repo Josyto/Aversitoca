@@ -29,9 +29,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
     private AdapterDecimos mAdapter;
     private SwipeRefreshLayout swipeContainer;
 
-
-
-
+    // Cuando se inicia la aplicación, se genera el listado completo de los boletos (en caso de que no
+    // aparezca ninguno, se indica al usuario que la lista se encuentra vacia).
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,15 +51,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
         recyclerDecimos.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerDecimos.setAdapter(mAdapter);
 
+        // Actualizamos la lista de boletos
         consultarListaDecimos();
 
-
-        // adding item touch helper
-        // only ItemTouchHelper.LEFT added to detect Right to Left swipe
-        // if you want both Right -> Left and Left -> Right
-        // add pass ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT as param
-
-        //ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
+        // Si arrastramos hacia la izquierda, eliminamos el elemento
         ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerDecimos);
 
@@ -69,13 +63,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
             @Override
             public void onRefresh() {
                 consultarListaDecimos();
-
-
             }
 
         });
 
-        // Configure the refreshing colors
 
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
 
@@ -87,13 +78,16 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
 
     }
 
+    // Cuando el usuario arrastra un elemento se le presentan la opcion de eliminar un boleto
+    // Si este selecciona eliminar puede o bien restaurarlo deshaciendo la accion o bien esperar
+    // a que se confirme el cambio
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {
         if (viewHolder instanceof AdapterDecimos.ViewHolderDecimos) {
-            // get the removed item name to display it in snack bar
+
             String name = listDecimos.get(viewHolder.getAdapterPosition()).getNumero();
 
-            // backup of removed item for undo purpose
+            // Hacemos una copia del elemento eliminado para restaurarlo
             final Decimo deletedItem = listDecimos.get(viewHolder.getAdapterPosition());
             final int deletedIndex = viewHolder.getAdapterPosition();
 
@@ -101,17 +95,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
             String boletoString = String.valueOf(boleto);
             getContentResolver().delete(DatabaseForm.CONTENT_URI,DatabaseForm.Column.ID + " = ?", new String[]{boletoString});
 
-            // remove the item from recycler view
+            // Eliminamos el elemento de la vista
             mAdapter.removeItem(viewHolder.getAdapterPosition());
-            // showing snack bar with Undo option
 
+            // Mostramos el snackbar con la opcion de deshacer los cambios
             Snackbar snackbar = Snackbar
                     .make(coordinatorLayout, name + getString(R.string.Eliminado), Snackbar.LENGTH_LONG);
             snackbar.setAction(R.string.undo, new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    // Si seleccionamos undo entonces recuperamos el boleto y
+                    // Si seleccionamos deshacer entonces recuperamos el boleto y
                     // lo introducimos en la base de datos de nuevo
                     mAdapter.restoreItem(deletedItem, deletedIndex);
 
@@ -132,12 +126,16 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
         }
     }
 
+    // Se encarga de evaluar si ha habido alguna actualizacion para el premio de los boletos
+    // y agregar dichos cambios a la vista
     protected void consultarListaDecimos() {
         Decimo decimo;
-       listDecimos.clear();
+        listDecimos.clear();
         stopService(new Intent(this, RefreshService.class));
         startService(new Intent(this, RefreshService.class));
+
         Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
+
         while (cursor.moveToNext()){
             decimo = new Decimo();
             decimo.setId(cursor.getInt(0));
@@ -149,7 +147,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
             decimo.setCelebrado(cursor.getInt(5));
 
             listDecimos.add(decimo);
-
         }
 
         swipeContainer.setRefreshing(false);
@@ -157,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
 
     }
 
-
+    // Si creamos o volvemos del menu de para insertar un nuevo boleto actualizamos la vista
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 5) {
@@ -165,12 +162,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
         }
     }
 
+    // Mostramos la lista de opciones de la aplicacion
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
+    // Mostramos las distintas opciones para el menu
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()) {
             case R.id.action_settings:
@@ -185,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
         }
     }
 
-
+    // Mostramos la vista para introducir un nuevo boleto
     public void onClick(View view) {
         Intent intent=new Intent(MainActivity.this,AddActivity.class);
         startActivityForResult(intent,5);

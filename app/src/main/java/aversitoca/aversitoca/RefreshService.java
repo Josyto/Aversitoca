@@ -211,8 +211,6 @@ public class RefreshService extends IntentService {
                     cursor.close();
                 }
 
-
-
                 Thread.sleep(delaymilis);
 
             }
