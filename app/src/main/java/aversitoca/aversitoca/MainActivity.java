@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
-import android.media.browse.MediaBrowser;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,7 +13,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,7 +21,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main2Activity extends AppCompatActivity implements RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
+public class MainActivity extends AppCompatActivity implements RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
 
     List<Decimo> listDecimos;
     RecyclerView recyclerDecimos;
@@ -194,7 +192,7 @@ public class Main2Activity extends AppCompatActivity implements RecyclerItemTouc
 
 
     public void onClick(View view) {
-        Intent intent=new Intent(Main2Activity.this,AddActivity.class);
+        Intent intent=new Intent(MainActivity.this,AñadirDecimo.class);
         startActivityForResult(intent,5);
     }
 }

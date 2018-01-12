@@ -5,14 +5,14 @@
     android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main2Activity">
+    tools:context=".MainActivity">
 
      <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="Main2Activity"
+        tools:context=".MainActivity"
         tools:showIn="@layout/activity_main2">
 
         <android.support.v7.widget.RecyclerView

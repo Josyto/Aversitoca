@@ -14,9 +14,9 @@ import android.util.Log;
 
 
 
-public class StatusProvider extends ContentProvider {
+public class BDProvider extends ContentProvider {
 
-    private static final String TAG = StatusProvider.class.getSimpleName();
+    private static final String TAG = BDProvider.class.getSimpleName();
     private Database database;
     private static final UriMatcher sURIMatcher;
 

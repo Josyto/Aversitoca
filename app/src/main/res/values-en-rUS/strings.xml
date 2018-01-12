@@ -27,4 +27,5 @@
     <string name="definitive">" Definitive Listing"</string>
     <string name="imgNotSaved">Image not Stored</string>
     <string name="imgSaved">Image Stored in Gallery</string>
+    <string name="please_connect">Please connect to a network</string>
 </resources>
