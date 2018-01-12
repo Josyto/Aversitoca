@@ -102,15 +102,25 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
 
         //Insertar foto en lista
         String fotostring=posDecimo.getFoto();
+        String sorteo=posDecimo.getSorteo() ;
         if (fotostring!=null) {
             if (fotostring.length() != 0) {
                 Bitmap myBitmap = BitmapFactory.decodeFile(fotostring);
                 holder.foto.setImageBitmap(myBitmap);
-            }else{
+            }else {
+                if (sorteo.equals("Loteria del Niño")) {
+                    holder.foto.setImageResource(R.drawable.ic_nino);
+                } else {
+                    holder.foto.setImageResource(R.mipmap.ic_launcher);
+                }
+            }
+
+        }else{
+            if (sorteo.equals("Loteria del Niño")) {
+                holder.foto.setImageResource(R.drawable.ic_nino);
+            } else {
                 holder.foto.setImageResource(R.mipmap.ic_launcher);
             }
-        }else{
-            holder.foto.setImageResource(R.mipmap.ic_launcher);
         }
     }
 
