@@ -33,10 +33,10 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
 
         public ViewHolderDecimos(View itemView) {
             super(itemView);
-            numeroDecimo=(TextView) itemView.findViewById(R.id.numero2);
-            nombreSorteo=(TextView)itemView.findViewById(R.id.sorteo2);
-            premio=(TextView) itemView.findViewById(R.id.premio2);
-            foto=(ImageView) itemView.findViewById(R.id.foto2);
+            numeroDecimo= itemView.findViewById(R.id.numero2);
+            nombreSorteo= itemView.findViewById(R.id.sorteo2);
+            premio= itemView.findViewById(R.id.premio2);
+            foto= itemView.findViewById(R.id.foto2);
             viewBackground = itemView.findViewById(R.id.view_background);
             viewForeground = itemView.findViewById(R.id.view_foreground);
         }
@@ -67,8 +67,6 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
         final Decimo posDecimo = listDecimos.get(position);
         holder.numeroDecimo.setText(posDecimo.getNumero());
         holder.nombreSorteo.setText(posDecimo.getSorteo());
-
-        //holder.premio.setText(posDecimo.getPremio() + "€");
 
 
         //Se informa al usuario del estado del sorteo, y del premio conocido en cada momento
