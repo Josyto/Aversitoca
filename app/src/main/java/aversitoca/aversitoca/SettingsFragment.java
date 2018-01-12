@@ -7,7 +7,6 @@ import android.preference.PreferenceManager;
 
 
 public class SettingsFragment extends PreferenceFragment {
-    private SharedPreferences prefs;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -17,6 +16,6 @@ public class SettingsFragment extends PreferenceFragment {
 
     @Override public void onStart() {
         super.onStart();
-        prefs = PreferenceManager. getDefaultSharedPreferences (getActivity());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
     }
 }

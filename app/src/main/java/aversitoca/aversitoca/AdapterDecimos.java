@@ -16,7 +16,6 @@ import java.util.List;
 
 public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHolderDecimos>{
 
-    private Context context;
     List<Decimo> listDecimos;
 
 
@@ -47,7 +46,7 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
     }
 
     public AdapterDecimos(Context context,List<Decimo> listDecimos) {
-        this.context=context;
+        Context context1 = context;
         this.listDecimos = listDecimos;
     }
 
