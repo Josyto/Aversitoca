@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
         swipeContainer = findViewById(R.id.swipeContainer);
 
 
