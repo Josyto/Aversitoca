@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">Naviniño</string>
     <string name="btn_guardar">Save</string>
-    <string name="capture_button">Picture</string>
     <string name="add_ticket">New Ticket</string>
     <string name="action_settings">Settings</string>
     <string name="refresh">Refresh</string>
