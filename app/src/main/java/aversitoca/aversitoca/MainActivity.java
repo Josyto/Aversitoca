@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        swipeContainer = findViewById(R.id.swipeContainer);
 
 
         recyclerDecimos = findViewById(R.id.recyclerId);

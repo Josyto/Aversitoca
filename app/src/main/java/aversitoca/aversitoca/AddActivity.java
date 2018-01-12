@@ -46,7 +46,7 @@ public class AddActivity extends Activity {
         setTitle(getString(R.string.add_ticket));
 
         //Spinner seleccion sorteo
-       Spinner spinner = (Spinner) findViewById(R.id.sorteos_spinner);
+       Spinner spinner = findViewById(R.id.sorteos_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.sorteos_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -55,8 +55,8 @@ public class AddActivity extends Activity {
 
         // La imagen del boleto
 
-        FloatingActionButton photoButton = (FloatingActionButton) this.findViewById(R.id.button1);
-        Button guardar = (Button) this.findViewById(R.id.btn_signup);
+        FloatingActionButton photoButton = this.findViewById(R.id.button1);
+        Button guardar = this.findViewById(R.id.btn_signup);
 
         // Guardamos los datos del usuario
         guardar.setOnClickListener(new View.OnClickListener () {
