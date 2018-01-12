@@ -20,4 +20,10 @@
     <string name="refresh">Actualizar</string>
     <string name="notHappened">No Celebrado</string>
     <string name="connect">Por favor conéctate a la red</string>
+
+    <string-array name="sorteos_array">
+        <item>Loteria de Navidad</item>
+        <item>Loteria del Niño</item>
+
+    </string-array>
 </resources>
