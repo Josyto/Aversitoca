@@ -1,26 +1,22 @@
 package aversitoca.aversitoca;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.net.Network;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
+/**
+ * Created by josyt on 11/01/2018.
+ */
 
 public class NetWatcher extends BroadcastReceiver {
 
-    private Context mContext;
+    private static final String LOG_TAG = "NetworkChangeReceiver";
+    private boolean isConnected = false;
 
-    public NetWatcher(Context context) {
-        this.mContext = context;
-    }
-
-    @SuppressLint("UnsafeProtectedBroadcastReceiver")
     @Override
     public void onReceive(Context context, Intent intent) {
         //here, check that the network connection is available. If yes, start your service. If not, stop your service.
@@ -42,31 +38,28 @@ public class NetWatcher extends BroadcastReceiver {
     }
 
     private boolean isNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Network[] networks = connectivityManager.getAllNetworks();
-            NetworkInfo networkInfo;
-            for (Network mNetwork : networks) {
-                networkInfo = connectivityManager.getNetworkInfo(mNetwork);
-                if (networkInfo.getState().equals(NetworkInfo.State.CONNECTED)) {
-                    return true;
-                }
-            }
-        }else {
-            if (connectivityManager != null) {
-                NetworkInfo[] info = connectivityManager.getAllNetworkInfo();
-                if (info != null) {
-                    for (NetworkInfo anInfo : info) {
-                        if (anInfo.getState() == NetworkInfo.State.CONNECTED) {
-                            Log.d("Network",
-                                    "NETWORKNAME: " + anInfo.getTypeName());
-                            return true;
+        ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivity != null) {
+            NetworkInfo[] info = connectivity.getAllNetworkInfo();
+            if (info != null) {
+                for (int i = 0; i < info.length; i++) {
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED) {
+                        if (!isConnected) {
+                            Log.v(LOG_TAG, "Estás conectado a Internet!");
+                            isConnected = true;
+                            // do your processing here ---
+                            // if you need to post any data to the server or get
+                            // status
+                            // update from the server
                         }
+                        return true;
                     }
                 }
             }
         }
-        Toast.makeText(mContext,mContext.getString(android.R.string.ple),Toast.LENGTH_SHORT).show();
+        Log.v(LOG_TAG, "La conexión a Internet no está disponible");
+        Toast.makeText(context, R.string.noNet, Toast.LENGTH_SHORT).show();
+        isConnected = false;
         return false;
     }
 }
