@@ -24,7 +24,7 @@ import android.content.ContentValues;
 
 
 
-public class AñadirDecimo extends Activity {
+public class AddActivity extends Activity {
     private static final int CAMERA_REQUEST = 1888;
     private ImageView imageView;
     CoordinatorLayout coordinatorLayout;
@@ -107,10 +107,10 @@ public class AñadirDecimo extends Activity {
                     @Override
                     public void onClick(View v) {
                         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        int permission = ActivityCompat.checkSelfPermission(AñadirDecimo.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                        int permission = ActivityCompat.checkSelfPermission(AddActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
                         if (permission != PackageManager.PERMISSION_GRANTED) {
                             // We don't have permission so prompt the user
-                            ActivityCompat.requestPermissions(AñadirDecimo.this, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE
+                            ActivityCompat.requestPermissions(AddActivity.this, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE
                             );
                         }
                         startActivityForResult(cameraIntent, CAMERA_REQUEST);
