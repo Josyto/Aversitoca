@@ -3,14 +3,12 @@ package aversitoca.aversitoca;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-/**
- * Created by josyt on 09/01/2018.
- */
+
 
 public class DatabaseForm {
-    public static final String DB_NAME = "timeline_db";
-    public static final int DB_VERSION = 3;
-    public static final String TABLE = "status";
+    public static final String DB_NAME = "boletos_db";
+    public static final int DB_VERSION = 4;
+    public static final String TABLE = "boletos";
     public static final String DEFAULT_SORT = Column.ID + " DESC";
 
     //Constantes del content provider

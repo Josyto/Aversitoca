@@ -3,9 +3,6 @@ package aversitoca.aversitoca;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-/**
- * Created by Marcos Muñoz on 09/01/2018.
- */
 
 public class SettingsActivity extends AppCompatActivity {
     @Override

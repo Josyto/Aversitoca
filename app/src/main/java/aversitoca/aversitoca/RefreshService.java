@@ -50,7 +50,7 @@ public class RefreshService extends IntentService {
         //Obtenemos preferencias
         SharedPreferences prefs = PreferenceManager. getDefaultSharedPreferences (this);
         int delayPrefs= prefs.getInt("tiempomin",1);
-        //minutos a milis
+        //Minutos a milis
         int delaymilis= delayPrefs*60000;
 
 

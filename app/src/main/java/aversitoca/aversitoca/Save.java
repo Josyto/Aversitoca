@@ -17,9 +17,6 @@ import java.util.Calendar;
 
 
 
-/**
- * Created by josyt on 11/01/2018.
- */
 
 public class Save {
 
