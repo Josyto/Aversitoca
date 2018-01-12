@@ -58,7 +58,7 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
     @Override
     public ViewHolderDecimos onCreateViewHolder(ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item_decimo2,parent,false);
+                .inflate(R.layout.list_item_decimo,parent,false);
 
         return new ViewHolderDecimos(view);
     }
