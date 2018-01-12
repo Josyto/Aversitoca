@@ -25,6 +25,7 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
         TextView numeroDecimo;
         TextView nombreSorteo;
         TextView premio;
+        TextView estado;
         ImageView foto;
         public RelativeLayout viewBackground, viewForeground;
 
@@ -36,9 +37,11 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
             numeroDecimo=(TextView) itemView.findViewById(R.id.numero2);
             nombreSorteo=(TextView)itemView.findViewById(R.id.sorteo2);
             premio=(TextView) itemView.findViewById(R.id.premio2);
+            estado=(TextView) itemView.findViewById(R.id.estadoSorteo);
             foto=(ImageView) itemView.findViewById(R.id.foto2);
             viewBackground = itemView.findViewById(R.id.view_background);
             viewForeground = itemView.findViewById(R.id.view_foreground);
+
         }
 
     }
@@ -77,16 +80,20 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
                 holder.premio.setText(R.string.notHappened);
                 break;
             case 1:
-                holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.happening));
+                holder.premio.setText(posDecimo.getPremio() + "€ ");
+                holder.estado.setText(R.string.happening);
                 break;
             case 2:
-                holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.provisional));
+                holder.premio.setText(posDecimo.getPremio() + "€ ");
+                holder.estado.setText(R.string.provisional);
                 break;
             case 3:
-                holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.provisional));
+                holder.premio.setText(posDecimo.getPremio() + "€ ");
+                holder.estado.setText(R.string.provisional);
                 break;
             case 4:
-                holder.premio.setText(posDecimo.getPremio() + "€ " + context.getString(R.string.definitive));
+                holder.premio.setText(posDecimo.getPremio() + "€ ");
+                holder.estado.setText(R.string.definitive);
                 break;
         }
 

@@ -63,11 +63,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/numero2"
-            android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/foto2"
             android:text="Loteria de Navidad"
             android:textColor="@color/description"
-            android:textSize="12dp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/premio2"
@@ -76,7 +75,18 @@
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@id/foto2"
             android:textColor="@color/colorSecondary"
-            android:textSize="18dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            tools:text="4000000" />
+
+        <TextView
+            android:id="@+id/estadoSorteo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/description"
+            android:textSize="12sp"
             android:textStyle="bold"
             tools:text="4000000" />
 
