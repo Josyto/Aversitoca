@@ -21,6 +21,7 @@
     <string name="definitive">Listado Definitivo</string>
     <string name="connect">Por favor conéctate a la red</string>
 
+
     <string-array name="sorteos_array">
         <item>Loteria de Navidad</item>
         <item>Loteria del Niño</item>

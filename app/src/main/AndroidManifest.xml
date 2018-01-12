@@ -32,7 +32,9 @@
         <activity
             android:name=".AddActivity"
             android:label="@string/add_ticket"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            />
+
 
         <provider
             android:name=".StatusProvider"
