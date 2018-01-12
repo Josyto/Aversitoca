@@ -130,16 +130,15 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
 
     public void removeItem(int position) {
         listDecimos.remove(position);
-        // notify the item removed by position
-        // to perform recycler view delete animations
-        // NOTE: don't call notifyDataSetChanged()
+        // notificar eliminacion del item con la posicion
+        // para la actulzacion de la vista y las animaciones correspondientes
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, listDecimos.size());
     }
 
     public void restoreItem(Decimo item, int position) {
         listDecimos.add(position, item);
-        // notify item added by position
+        // notificar insercion en posicion
         notifyItemInserted(position);
     }
 

@@ -2,6 +2,9 @@ package aversitoca.aversitoca;
 
 /**
  * Created by Marcos Muñoz on 10/01/2018.
+ *
+ * Clase que representa los decimos introducidos
+ * Contiene
  */
 
 public class Decimo {
