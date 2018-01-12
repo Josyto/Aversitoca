@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 public class NetWatcher extends BroadcastReceiver {
 
+    // Nos avisa si existe o no conexion
+
     @SuppressLint("UnsafeProtectedBroadcastReceiver")
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -21,12 +23,12 @@ public class NetWatcher extends BroadcastReceiver {
         isNetworkAvailable(context);
         if (info != null) {
             if (info.isConnected()) {
-                //start service
+                //iniciamos el servicio
                 intent = new Intent(context, RefreshService.class);
                 context.startService(intent);
             }
             else {
-                //stop service
+                //paramos el servicio
                 intent = new Intent(context, RefreshService.class);
                 context.stopService(intent);
             }

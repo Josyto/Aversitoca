@@ -9,6 +9,8 @@ import android.view.View;
 public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
     private RecyclerItemTouchHelperListener listener;
 
+    // Se encarga de mostrar la lista de boletos de la aplicacion
+
     public RecyclerItemTouchHelper(int dragDirs, int swipeDirs, RecyclerItemTouchHelperListener listener){
         super(dragDirs, swipeDirs);
         this.listener = listener;

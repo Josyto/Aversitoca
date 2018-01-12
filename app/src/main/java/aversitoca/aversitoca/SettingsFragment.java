@@ -8,6 +8,8 @@ import android.preference.PreferenceManager;
 
 public class SettingsFragment extends PreferenceFragment {
 
+    // Establecemos las preferencias de los ajustes
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
