@@ -78,6 +78,7 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
         switch (posDecimo.getCelebrado()){
             case 0:
                 holder.premio.setText(R.string.notHappened);
+                holder.estado.setText("");
                 break;
             case 1:
                 holder.premio.setText(posDecimo.getPremio() + "€ ");
