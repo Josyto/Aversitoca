@@ -24,7 +24,6 @@ public class Database extends SQLiteOpenHelper {
     }
 
     // Llamado para actualizar a nueva versión
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists " + DatabaseForm.TABLE);
