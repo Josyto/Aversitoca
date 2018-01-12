@@ -24,6 +24,8 @@ import android.content.ContentValues;
 
 
 public class AddActivity extends Activity {
+
+    // Generamos las variables necesarias para la actividad de crear un nuevo boleto
     private static final int CAMERA_REQUEST = 1888;
     CoordinatorLayout coordinatorLayout;
     String uri = "";
@@ -34,11 +36,12 @@ public class AddActivity extends Activity {
     };
 
 
+    // Cuando se inicia la actividad, mostramos la plantilla para rellenar que incluye los datos
+    // necesarios para registrar el boleto
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nuevo_decimo);
-
 
         //Cambio titulo Appbar
         setTitle(getString(R.string.add_ticket));
@@ -107,7 +110,6 @@ public class AddActivity extends Activity {
                         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         int permission = ActivityCompat.checkSelfPermission(AddActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
                         if (permission != PackageManager.PERMISSION_GRANTED) {
-                            // We don't have permission so prompt the user
                             ActivityCompat.requestPermissions(AddActivity.this, PERMISSIONS_STORAGE, REQUEST_EXTERNAL_STORAGE
                             );
                         }
@@ -120,7 +122,7 @@ public class AddActivity extends Activity {
 
     }
 
-
+    // Si el teclado nos impide ver el boton para registrar el boleto entonces lo ocultamos
     private void hideSoftKeyBoard() {
         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
@@ -129,6 +131,7 @@ public class AddActivity extends Activity {
         }
     }
 
+    // Guardamos la foto tomada mediante la camara en el dispositivo
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             Bundle extras = data.getExtras();
