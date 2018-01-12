@@ -19,7 +19,7 @@
     <string name="happening">Sorteo en curso</string>
     <string name="provisional">Listado Provisional</string>
     <string name="definitive">Listado Definitivo</string>
-    <string name="connect">Please connect to a network</string>
+    <string name="connect">Por favor conéctate a la red</string>
 
     <string-array name="sorteos_array">
         <item>Loteria de Navidad</item>

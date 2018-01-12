@@ -19,4 +19,5 @@
     <string name="happening">Draw in progress</string>
     <string name="provisional">Provisional List</string>
     <string name="definitive">" Definitive Listing"</string>
+    <string name="connect">Please connect to a network</string>
 </resources>

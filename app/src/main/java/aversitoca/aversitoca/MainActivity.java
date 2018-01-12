@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
     }
 
     protected void consultarListaDecimos() {
-        Decimo decimo = null;
+        Decimo decimo;
        listDecimos.clear();
         Cursor cursor = getContentResolver().query(DatabaseForm.CONTENT_URI,null,null,null,null);
         stopService(new Intent(this, RefreshService.class));
