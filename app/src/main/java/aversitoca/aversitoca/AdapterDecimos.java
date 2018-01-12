@@ -93,7 +93,7 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
 
 
         //Insertar foto en lista
-        String fotostring=posDecimo.getFoto();
+        String fotostring = posDecimo.getFoto();
         if (fotostring.length()!=0) {
             Bitmap myBitmap = BitmapFactory.decodeFile(fotostring);
             holder.foto.setImageBitmap(myBitmap);

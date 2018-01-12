@@ -27,6 +27,7 @@
     <string name="definitive">Listado Definitivo</string>
     <string name="imgNotSaved">¡No se ha podido guardar la imagen!</string>
     <string name="imgSaved">Imagen guardada en la galería.</string>
+    <string name="connect">Please connect to a network</string>
 
     <string-array name="sorteos_array">
         <item>Loteria de Navidad</item>
