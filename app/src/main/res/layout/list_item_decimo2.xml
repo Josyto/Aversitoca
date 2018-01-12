@@ -15,17 +15,17 @@
             android:id="@+id/delete_icon"
             android:layout_width="@dimen/ic_delete"
             android:layout_height="@dimen/ic_delete"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/padd_10"
+            android:layout_marginEnd="@dimen/padd_10"
             android:src="@drawable/ic_delete_white_24dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/padd_10"
-            android:layout_toLeftOf="@id/delete_icon"
+            android:layout_marginEnd="@dimen/padd_10"
+            android:layout_toStartOf="@id/delete_icon"
             android:text="@string/delete"
             android:textColor="#fff"
             android:textSize="13dp" />
@@ -43,18 +43,18 @@
             android:id="@+id/foto2"
             android:layout_width="@dimen/thumbnail"
             android:layout_height="@dimen/thumbnail"
-            android:layout_marginRight="@dimen/activity_padding_horizontal"
+            android:layout_marginEnd="@dimen/activity_padding_horizontal"
             android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/numero2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/foto2"
+            android:layout_toEndOf="@id/foto2"
             android:ellipsize="end"
             android:fontFamily="sans-serif-medium"
             android:maxLines="1"
-            android:text="71198"
+            tools:text="71198"
             android:textColor="@color/item_name"
             android:textSize="22dp" />
 
@@ -63,8 +63,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/numero2"
-            android:layout_toRightOf="@id/foto2"
-            android:text="Loteria de Navidad"
+            android:layout_toEndOf="@id/foto2"
+            tools:text="Loteria de Navidad"
             android:textColor="@color/description"
             android:textSize="12sp" />
 
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@id/foto2"
+            android:layout_toEndOf="@id/foto2"
             android:textColor="@color/colorSecondary"
             android:textSize="30sp"
             android:textStyle="bold"

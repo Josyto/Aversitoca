@@ -1,10 +1,10 @@
 <!--?xml version="1.0" encoding="UTF-8"?-->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#007ac1</color>
-    <color name="primaryColorLight">#59a9f4</color>
+    <color name="primaryColorLight" tools:keep="@color/primaryColorLight">#59a9f4</color>
     <color name="colorPrimaryDark">#004f90</color>
     <color name="colorSecondary">#ffc107</color>
-    <color name="colorSecondaryLight">#fff350</color>
+    <color name="colorSecondaryLight" tools:keep="@color/colorSecondaryLight">#fff350</color>
     <color name="colorSecondaryDark">#c79100</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#000000</color>

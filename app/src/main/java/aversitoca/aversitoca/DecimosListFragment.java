@@ -24,7 +24,7 @@ public class DecimosListFragment extends ListFragment implements LoaderManager.L
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setEmptyText("Sin datos...");
-        mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.list_item_decimo, null, FROM, TO, 0);
+        mAdapter = new SimpleCursorAdapter(getActivity(), R.layout.list_item_decimo2, null, FROM, TO, 0);
         //mAdapter.setViewBinder(new TimelineViewBinder());
 
         setListAdapter(mAdapter);
