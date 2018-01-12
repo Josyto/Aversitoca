@@ -10,12 +10,4 @@
         android:singleLine="true"
         android:summary="@string/summaryActualizarCada"
         android:title="@string/actualizarCada" />
-    <SwitchPreference
-        android:defaultValue="false"
-        android:disableDependentsState="false"
-        android:key="switch_notificaciones"
-        android:persistent="true"
-        android:selectable="false"
-        android:summary="@string/summaryNotificationsSwitch"
-        android:title="@string/titleNotificationsSwitch" />
 </PreferenceScreen>
