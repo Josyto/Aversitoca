@@ -34,11 +34,11 @@ public class AdapterDecimos extends RecyclerView.Adapter<AdapterDecimos.ViewHold
 
         public ViewHolderDecimos(View itemView) {
             super(itemView);
-            numeroDecimo=(TextView) itemView.findViewById(R.id.numero2);
-            nombreSorteo=(TextView)itemView.findViewById(R.id.sorteo2);
-            premio=(TextView) itemView.findViewById(R.id.premio2);
-            estado=(TextView) itemView.findViewById(R.id.estadoSorteo);
-            foto=(ImageView) itemView.findViewById(R.id.foto2);
+            numeroDecimo= itemView.findViewById(R.id.numero2);
+            nombreSorteo=itemView.findViewById(R.id.sorteo2);
+            premio=itemView.findViewById(R.id.premio2);
+            estado= itemView.findViewById(R.id.estadoSorteo);
+            foto= itemView.findViewById(R.id.foto2);
             viewBackground = itemView.findViewById(R.id.view_background);
             viewForeground = itemView.findViewById(R.id.view_foreground);
 
