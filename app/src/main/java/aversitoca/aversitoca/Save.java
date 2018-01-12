@@ -21,14 +21,13 @@ import java.util.Calendar;
 public class Save {
 
     private Context TheThis;
-    private String NameOfFolder = "/Nuevacarpeta";
-    private String NameOfFile = "imagen";
     private File file;
 
     public String SaveImage(Context context, Bitmap ImageToSave) {
 
         TheThis = context;
-        String file_path = Environment.getExternalStorageDirectory().getAbsolutePath() + NameOfFolder;
+        String nameOfFolder = "/Nuevacarpeta";
+        String file_path = Environment.getExternalStorageDirectory().getAbsolutePath() + nameOfFolder;
         String CurrentDateAndTime = getCurrentDateAndTime();
         File dir = new File(file_path);
 
@@ -37,7 +36,8 @@ public class Save {
 
         }
 
-        File file = new File(dir, NameOfFile + CurrentDateAndTime + ".jpg");
+        String nameOfFile = "imagen";
+        File file = new File(dir, nameOfFile + CurrentDateAndTime + ".jpg");
 
         try {
             FileOutputStream fOut = new FileOutputStream(file);
